@@ -33,17 +33,26 @@
       <li class="nav-item"  id="nhome">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item"  id="nabout">
-        <a class="nav-link" href="/about">About</a>
+      <li class="nav-item dropdown" id="nabout">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About
+        </a>
+        <div class="dropdown-menu drop" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/about">Why The Foundation</a>
+          <a class="dropdown-item" href="/about#visionAndMission">Vision and Mission</a>
+          <a class="dropdown-item" href="/about#whoIsBuddhaCeo">Who is Buddha-CEO</a>
+          <a class="dropdown-item" href="/about#teamSection">Team</a>
+      </div>
       </li>
       <li class="nav-item dropdown" id="nevent">
         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Events
         </a>
-        <div class="dropdown-menu drop" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/events/programs">Our Programs</a>
-          <a class="dropdown-item" href="#">Upcoming Workshop</a>
-		  </div>
+          <div class="dropdown-menu drop" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/events/programs">Our Programs</a>
+            <a class="dropdown-item" href="#">Upcoming Workshop</a>
+        </div>
+      </li>
       <li class="nav-item" id="nresource">
         <a class="nav-link" href="#">Resources</a>
       </li>
