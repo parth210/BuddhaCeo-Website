@@ -1,7 +1,13 @@
 var express       = require("express");
+var multer = require("multer");
+var path = require("path");
+var fs = require("fs");
 var router        = express.Router();
 
 
+const upload = multer({
+  dest: "./public/images/uploads"
+});
 
 
 /*                                            Mongoose Schema                            */
@@ -127,9 +133,18 @@ router.get('/cms/delete/:type', function (req, res) {
 
 
 
-router.post('/cms/:page/:type', function (req, res) {
+router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
 
-find =  CMS.find({
+  if(req.file){
+    const tempPath = req.file.path;
+    const targetPath ="./public/images/uploads/"+req.params.type+"-"+req.file.originalname;
+    fs.rename(tempPath, targetPath, err => {
+          if (err) res.send(err);
+    })
+    req.body.img = req.params.type +"-"+ req.file.originalname
+  }
+
+  find =  CMS.find({
     'page': req.params.page,
     'type': req.params.type
   }, (err, found) => {
@@ -185,6 +200,7 @@ find =  CMS.find({
           }
         })
     })
+
 })
 
 
