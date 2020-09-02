@@ -101,7 +101,25 @@ router.get('/cms/:type', function (req, res) {
 
 
 router.get('/cms/delete/:type/:id', function (req, res) {
-  CMS.deleteOne({type: req.params.type, _id: mongoose.Types.ObjectId(req.params.id)}, (err, deleted) => {
+    CMS.updateMany({type: req.params.type}, {
+      $pull: {
+        'elements': {
+          '_id': req.params.id
+        }
+      }
+    }, (err, deleted) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(deleted)
+      }
+    })
+})
+
+
+
+router.get('/cms/delete/:type', function (req, res) {
+  CMS.deleteOne({type: req.params.type}, (err, deleted) => {
     if (err) {
       console.log(err);
     } else {
