@@ -24,5 +24,8 @@ router.get("/corporateprograms" , function(req, res) {
 router.get("/contact" , function(req, res) {
 	res.render("contact");
 })
+router.get("/admin/home" , function(req, res) {
+	res.render("admin_home");
+})
 
 module.exports = router;
