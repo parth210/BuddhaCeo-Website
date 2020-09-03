@@ -1,6 +1,8 @@
 var express       = require("express");
 var router        = express.Router();
 
+var CMS = require("../models/CMS");
+
 router.get("/" , function(req, res) {
 	res.render("home");
 })
@@ -24,8 +26,15 @@ router.get("/corporateprograms" , function(req, res) {
 router.get("/contact" , function(req, res) {
 	res.render("contact");
 })
+
 router.get("/admin/home" , function(req, res) {
-	res.render("admin_home");
+	CMS.find({type: 'carousel'}, (err, carousel) => {
+		if (err) {
+			console.log(err)
+		} else {
+			res.render("admin_home",{carousel:carousel});
+			}
+		})
 })
 
 module.exports = router;

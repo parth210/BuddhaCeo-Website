@@ -37,16 +37,30 @@
 <a class="btn btn-md btn-primary button" href="#carousel_add" data-toggle="modal" style="float:right">Add new</a>
 <hr>
 <div style="display: flex;">
+
+
+<% carousel[0].elements.forEach((car) => {
+  temp = []
+  temp['id'] = car._id
+  car.data.forEach((type) => {
+    temp[type.name] = type.value
+  })
+%>
+
 <div class="card card-admin eventcard">
-  <img class="card-img-top  e-image" src="/images/programs/6.jpg" alt="Card image cap" style="object-fit:cover;">
+  <img class="card-img-top  e-image" src="/images/uploads/<%= temp['img']; %>" alt="Card image cap" style="object-fit:cover;">
    <div class="card-body cardstyle">
-       <h5 class="card-title">Guided Meditation for Total Wellbeing<br> - 5 Days</h5>
-      <p class="card-text">This program is a variant of our 40-day program and designed for busy yet highly self-
-managing individuals, professionals and leaders who have certain schedule constraints.
-This program is targeted at beginners and long term meditators.</p>
-        <a class="btn btn-lg btn-primary button">Edit</a>  <a class="btn btn-lg btn-danger button">Delete</a>
+       <h5 class="card-title"><%= temp['title']; %></h5>
+      <p class="card-text"><%= temp['description']; %></p>
+        <a class="btn btn-lg btn-primary button">Edit</a>  <a target="_blank" href="/cms/delete/carousel/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
   </div>
 </div>
+
+<%
+  temp = [];
+})
+%>
+
 </div>
 <br>
 <div class="modal fade" id="events_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
