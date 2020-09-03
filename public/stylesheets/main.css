@@ -211,6 +211,17 @@ body {
   text-align: center;
   color: #3b3735;
 }
+.text li {
+	font-family: Roboto;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: #3b3735;
+}
 .text h1 {
 	 font-family: Roboto;
   font-size: 50px;
@@ -242,6 +253,7 @@ body {
 	padding: 23px;
 	border-radius: 20px!important;
 	box-shadow: 0 2px 5px 0 rgba(7, 113, 188, 0.13), 0 2px 10px 0 rgba(7, 113, 188, 0.13)!important;
+	height: 100%;
 }
 #hg1 img {
 	position: absolute;
@@ -676,6 +688,8 @@ body {
 }
 .cimage img {
 	width: 190px;
+	height: 100%;
+	object-fit: cover;
 }
 .imgcard {
 	padding: 30px;
@@ -684,7 +698,7 @@ body {
 .spi-card {
 	padding: 20px;
     border-radius: 25px!important;
-	height: 230px;
+	height: 260px;
 }
 .teamcard {
 	border-radius: 20px!important;
@@ -946,7 +960,11 @@ text-align: center;
 {
 display: none;
 }
-
+@media (max-width:600px) {
+	.cover {
+		bottom: 275px!important;
+	}
+}
 @media (max-width:992px)
 {
  #navbarSupportedContent
@@ -954,9 +972,11 @@ display: none;
    opacity: 1;
    border-radius: 15px;
  }
+	
  #demo
  {
    top:80px;
+	 position: initial!important;
  }
  .front img
  {
@@ -974,6 +994,15 @@ display: none;
  {
   font-size:10px;
  }
+	.carousel-caption2 {
+		top: 35%!important;
+	}
+	#brand img {
+		height: 40px!important;
+	}
+	.eventcard {
+		margin-bottom: 20px!important;
+	}
  #body2
  {
    bottom: -150px;
@@ -1008,6 +1037,9 @@ display: none;
 	.text p {
 		font-size: 16px;
 	}
+	.text li {
+		font-size: 16px;
+	}
 	.work-text p {
 		font-size: 16px;
 	}
@@ -1032,6 +1064,9 @@ display: none;
 	.caption-donate {
 		top: 35%!important;
 	}
+}
+.caption{
+	top: 30%!important;
 }
 .caption-corp {
     position: absolute;
@@ -1076,4 +1111,8 @@ display: none;
 }
 #x {
 	 transition: all 3s;
+}
+.e-image {
+	height: 155px;
+    border-radius: 10px!important;
 }

@@ -9,7 +9,7 @@ router.get("/about" , function(req, res) {
 	res.render("about");
 })
 
-router.get("/events/programs" , function(req, res) {
+router.get("/ourprograms" , function(req, res) {
 	res.render("programs");
 })
 
