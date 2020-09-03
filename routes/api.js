@@ -1,7 +1,13 @@
 var express       = require("express");
+var multer = require("multer");
+var path = require("path");
+var fs = require("fs");
 var router        = express.Router();
 
 
+const upload = multer({
+  dest: "./public/images/uploads"
+});
 
 
 /*                                            Mongoose Schema                            */
@@ -10,6 +16,7 @@ var Programs = require("../models/Programs");
 var Volunteer = require("../models/Volunteer");
 var General = require("../models/General");
 var Newsletter = require("../models/Newsletter");
+var CMS = require("../models/CMS");
 
 
 function model(type) {
@@ -80,7 +87,121 @@ router.post('/api/:type', function (req, res) {
 
 })
 
+//                     CMS
 
+
+router.get('/cms/:type', function (req, res) {
+  CMS.find({type: req.params.type}, (err, found) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(found)
+      }
+    })
+})
+
+
+
+
+router.get('/cms/delete/:type/:id', function (req, res) {
+    CMS.updateMany({type: req.params.type}, {
+      $pull: {
+        'elements': {
+          '_id': req.params.id
+        }
+      }
+    }, (err, deleted) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.send(deleted)
+      }
+    })
+})
+
+
+
+router.get('/cms/delete/:type', function (req, res) {
+  CMS.deleteOne({type: req.params.type}, (err, deleted) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("deleted");
+    }
+  })
+})
+
+
+
+router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
+
+  if(req.file){
+    const tempPath = req.file.path;
+    const targetPath ="./public/images/uploads/"+req.params.type+"-"+req.file.originalname;
+    fs.rename(tempPath, targetPath, err => {
+          if (err) res.send(err);
+    })
+    req.body.img = req.params.type +"-"+ req.file.originalname
+  }
+
+  find =  CMS.find({
+    'page': req.params.page,
+    'type': req.params.type
+  }, (err, found) => {
+
+      if (err) {
+        console.log(err);
+      } else if(!found.length){
+          data = {}
+          data['page'] = req.params.page
+          data['type'] = req.params.type
+          data['elements'] = []
+
+          CMS.create(data, (err, created) => {
+            if (err) {
+              console.log(err);
+            }
+          })
+      }
+  })
+
+
+  find.then(function(){
+
+        //body = req.query
+        body = req.body
+        data = new Array()
+
+        Object.keys(body).forEach(function (key){
+          if(key=='rank'){
+            return;
+          }
+          temp = {}
+          temp['name'] = key
+          temp['value'] = body[key]
+          data.push(temp)
+        })
+
+        CMS.updateOne({
+          'page': req.params.page,
+          'type': req.params.type
+        }, {
+          $addToSet:{
+            "elements":{
+              "rank": body.rank,
+              "data": data
+            }
+          }
+        }, (err, found) => {
+          if (err) {
+            console.log(err)
+          } else {
+            res.send('added')
+          }
+        })
+    })
+
+})
 
 
 module.exports = router;
