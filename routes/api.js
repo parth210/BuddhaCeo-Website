@@ -72,7 +72,7 @@ router.post('/api/:type', function (req, res) {
       incomplete.push(keys);
     }
   }
-   
+
 
   if(incomplete.length===0){
     model(req.params.type).create(body, (err, created) => {
@@ -176,7 +176,7 @@ router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
         data = new Array()
 
         Object.keys(body).forEach(function (key){
-          if(key=='rank'){
+          if(key=='rank' || key=='id'){
             return;
           }
           temp = {}
@@ -185,23 +185,45 @@ router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
           data.push(temp)
         })
 
-        CMS.updateOne({
-          'page': req.params.page,
-          'type': req.params.type
-        }, {
-          $addToSet:{
-            "elements":{
-              "rank": body.rank,
-              "data": data
-            }
-          }
-        }, (err, found) => {
-          if (err) {
-            console.log(err)
+          if(body.id){
+              console.log(body.id);
+              CMS.updateOne({
+                'page': req.params.page,
+                'type': req.params.type,
+                'elements._id': body.id
+              }, {
+                $set:{
+                    "elements.$.rank": body.rank,
+                    "elements.$.data": data
+                }
+              }, (err, found) => {
+                if (err) {
+                  console.log(err)
+                } else {
+                  res.send('edited')
+                }
+              })
+
           } else {
-            res.send('added')
-          }
-        })
+
+              CMS.updateOne({
+                'page': req.params.page,
+                'type': req.params.type
+              }, {
+                $addToSet:{
+                  "elements":{
+                    "rank": body.rank,
+                    "data": data
+                  }
+                }
+              }, (err, found) => {
+                if (err) {
+                  console.log(err)
+                } else {
+                  res.send('added')
+                }
+              })
+        }
     })
 
 })
