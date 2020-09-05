@@ -1,0 +1,182 @@
+<%- include("partials/sidebar") %>
+<div class="modal fade" id="contact_top_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add contact_top</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/home/contact_top" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>rank</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="rank">
+  </div>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="title" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description" aria-describedby="emailHelp" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input name="img" type="file" class="form-control"></input>
+  </div>
+  <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="admin-heads">contact_top</h2>
+<a class="btn btn-md btn-primary button" href="#contact_top_add" data-toggle="modal" style="float:right">Add new</a>
+<hr>
+<div style="display: flex;">
+
+
+<% if(contact_top.length>0)contact_top[0].elements.forEach((car) => {
+  temp = []
+  temp['id'] = car._id
+  temp['rank']=car.rank
+  car.data.forEach((type) => {
+    temp[type.name] = type.value
+  })
+%>
+
+<div class="card card-admin eventcard">
+  <img class="card-img-top  e-image" src="/images/uploads/<%= temp['img']; %>" alt="Card image cap" style="object-fit:cover;">
+   <div class="card-body cardstyle">
+       <h5 class="card-title"><%= temp['title']; %></h5>
+       rank:<%= temp['rank']; %>
+      <p class="card-text"><%= temp['description']; %></p>
+        <a class="btn btn-lg btn-primary button">Edit</a>  <a target="_blank" href="/cms/delete/contact_top/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+  </div>
+</div>
+
+<%
+  temp = [];
+})
+%>
+
+</div>
+<br>
+
+<div class="modal fade" id="email_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add email</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/email" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="rank">
+    </div>
+    <div class="form-group">
+      <label>email</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="email" aria-describedby="emailHelp">
+    </div>
+    
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="admin-heads">Email </h2>
+  <a class="btn btn-md btn-primary button" href="#email_add" data-toggle="modal" style="float:right">Add new</a>
+  <hr>
+  <div style="display: flex;">
+  
+  
+  <% if(email.length>0)email[0].elements.forEach((car) => {
+    temp = []
+    temp['id'] = car._id
+    temp['rank']=car.rank
+    car.data.forEach((type) => {
+      temp[type.name] = type.value
+    })
+  %>
+  
+  <div class="card card-admin eventcard">
+    
+     <div class="card-body cardstyle">
+         <h5 class="card-title"><%= temp['email']; %></h5>
+         rank:<%= temp['rank']; %> 
+          <a class="btn btn-lg btn-primary button">Edit</a>  <a target="_blank" href="/cms/delete/email/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+    </div>
+  </div>
+  
+  <%
+    temp = [];
+  })
+  %>
+  
+  </div>
+  <br>
+  <div class="modal fade" id="phone_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add phone</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/phone" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputphone1" name="rank">
+    </div>
+    <div class="form-group">
+      <label>phone</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="phone" aria-describedby="phoneHelp">
+    </div>
+    
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="admin-heads">phone </h2>
+  <a class="btn btn-md btn-primary button" href="#phone_add" data-toggle="modal" style="float:right">Add new</a>
+  <hr>
+  <div style="display: flex;">
+  
+  
+  <% if(phone.length>0)phone[0].elements.forEach((car) => {
+    temp = []
+    temp['id'] = car._id
+    temp['rank']=car.rank
+    car.data.forEach((type) => {
+      temp[type.name] = type.value
+    })
+  %>
+  
+  <div class="card card-admin eventcard">
+    
+     <div class="card-body cardstyle">
+         <h5 class="card-title"><%= temp['phone']; %></h5>
+         rank:<%= temp['rank']; %> 
+          <a class="btn btn-lg btn-primary button">Edit</a>  <a target="_blank" href="/cms/delete/phone/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+    </div>
+  </div>
+  
+  <%
+    temp = [];
+  })
+  %>
+  
+  </div>
+  <br>
+  <%- include("partials/admin_end") %>
