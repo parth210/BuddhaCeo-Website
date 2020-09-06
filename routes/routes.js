@@ -52,7 +52,39 @@ router.get("/about" , function(req, res) {
 				}
 				else
 				{
-					res.render("about",{about_top,mentors});
+					CMS.find({type: 'founders'}, (err, founders) => {
+						if (err) {
+							console.log(err)
+						}
+						else
+						{
+							CMS.find({type: 'apex'}, (err, apex) => {
+								if (err) {
+									console.log(err)
+								}
+								else
+								{
+									CMS.find({type: 'flag'}, (err, flag) => {
+										if (err) {
+											console.log(err)
+										}
+										else
+										{
+											CMS.find({type: 'partner'}, (err, partner) => {
+												if (err) {
+													console.log(err)
+												}
+												else
+												{
+													res.render("about",{about_top,mentors,founders,apex,flag,partner});
+												}
+											})   
+										}
+									})
+								}
+							})
+						}
+					})
 				}
 			})
 		}

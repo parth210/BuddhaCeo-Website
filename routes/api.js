@@ -200,7 +200,8 @@ router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
                 if (err) {
                   console.log(err)
                 } else {
-                  res.send('edited')
+                  let str=""
+                  res.redirect('/admin/'+req.params.page)
                 }
               })
 

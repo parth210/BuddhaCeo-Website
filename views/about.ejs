@@ -1814,20 +1814,33 @@ temp=[]})
 				</div>
 			</div>
 		<div class="row mt-5">
-	
-			<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('founding_leaders1')" onmouseout="contract('founding_leaders1')">
+			<% founders[0].elements.sort(compare).forEach((event,key) => {
+				temp = []
+				temp['id'] = event._id
+				temp['rank']=event.rank
+				event.data.forEach((type) => {
+				  temp[type.name] = type.value
+				})
+				
+				
+				let key1='founders'+key; %>
+			<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('<%= key1%>')" onmouseout="contract('<%= key1%>')">
 				<div class="card mb-3 teamcard" id="card3">
-				<img class="card-img-top rounded-circle" src="/images/about/mentor/11.png" alt="Card image cap">
+				<img class="card-img-top rounded-circle" src="/images/uploads/<%= temp['img']%>" alt="Card image cap">
 				<div class="card-body justify-content-center">
-				<h5 class="card-title" style="text-align: center">Chandra Pulamarasetti</h5>
-				 <p class="card-text">Successful Entrepreneur, Former VP, IBM Corporation
+				<h5 class="card-title" style="text-align: center"><%= temp['title']%></h5>
+				 <p class="card-text"><%= temp['subtitle']%>
 					  </p>
-				<p id="founding_leaders1" class="toggleable">Chandra is a successful entrepreneur, former Vice President of IBM Corporation,transformational meditation coach,and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti attributes a lot of his success including the recent acquisition of his software company,  to the powerful techniques based on meditation and manifestation. He has been practicing meditation for over 20 years now, teaches regularly to organizational & business leaders and professionals, and participates in several meditation service activities.</p>
+				<p id="<%= key1%>" class="toggleable"><%= temp['description']%></p>
 				</div>
 	</div>
 				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
 		</div>
-		<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('founding_leaders2')" onmouseout="contract('founding_leaders2')">
+		<%
+  
+		temp=[]})
+		%>
+		<!-- <div class="col-lg-4 justify-content-center mentor" onmouseover="expand('founding_leaders2')" onmouseout="contract('founding_leaders2')">
 				<div class="card mb-3 teamcard" id="card3">
 				<img class="card-img-top rounded-circle" src="/images/about/mentor/8.png" alt="Card image cap">
 				<div class="card-body justify-content-center">
@@ -1842,7 +1855,7 @@ temp=[]})
 						IBM service Blog and THINK Blog.</p>
 				</div>
 	</div>
-				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> 
 		</div>
 		<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('founding_leaders3')" onmouseout="contract('founding_leaders3')">
 				<div class="card mb-3 teamcard" id="card3">
@@ -1855,13 +1868,85 @@ temp=[]})
 						.</p>
 				</div>
 	</div>
-				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
-		</div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> 
+		</div> -->
 			</div>
 			
-			
+			<div class="row justify-content-center" style="margin-top: 10%">
+				<div class="col col-lg-6 text">
+						<p>
+							Apex Council
+					</p>
+					
+					
+				</div>
+			</div>
+		<div class="row mt-5">
+			<% apex[0].elements.sort(compare).forEach((event,key) => {
+				temp = []
+				temp['id'] = event._id
+				temp['rank']=event.rank
+				event.data.forEach((type) => {
+				  temp[type.name] = type.value
+				})
+				
+				
+				let key1='apex'+key; %>
+			<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('<%= key1%>')" onmouseout="contract('<%= key1%>')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/uploads/<%= temp['img']%>" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center"><%= temp['title']%></h5>
+				 <p class="card-text"><%= temp['subtitle']%>
+					  </p>
+				<p id="<%= key1%>" class="toggleable"><%= temp['description']%></p>
+				</div>
+	</div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
+		</div>
+		<%
+  
+		temp=[]})
+		%>
+		</div>
 			<!-- modal -->
-			
+			<div class="row justify-content-center" style="margin-top: 10%">
+				<div class="col col-lg-6 text">
+						<p>
+							Flag Carriers
+					</p>
+				</div>
+			</div>
+		<div class="row"> 
+			<% flag[0].elements.sort(compare).forEach((event,key) => {
+				temp = []
+				temp['id'] = event._id
+				temp['rank']=event.rank
+				event.data.forEach((type) => {
+				  temp[type.name] = type.value
+				})
+				
+				
+				let key4='flag'+key; %>
+			<div class="col-lg-4 col-6" onmouseover="expand('<%=key4%>')" onmouseout="contract('<%=key4%>')">
+				<div class="card mb-3 mt-5 flagcard" id="card3">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/uploads/<%= temp['img']%>" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title"><%= temp['title']%> </h5>
+					   <p id="<%=key4%>" class="toggleable mt-5"><%= temp['description']%></p>
+				</div>
+			  </div>
+			</div>
+		</div>
+		</div> 
+		<%
+  
+		temp=[]})
+		%>
 	
 	<!-- Modal -->
 	<!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -2705,15 +2790,25 @@ temp=[]})
 		</div>
 
 	<div class="row mt-5">
+		<% partner[0].elements.sort(compare).forEach((event,key) => {
+			temp = []
+			temp['id'] = event._id
+			temp['rank']=event.rank
+			event.data.forEach((type) => {
+			  temp[type.name] = type.value
+			})%>
 		<div class="col-lg-4">
 			<div class="card card-partner mb-3" id="card3">
-             <img class="card-img-top" src="/images/about/6.png" alt="Card image cap" style="height:110px; width: 130px;">
+             <img class="card-img-top" src="/images/uploads/<%= temp['img']%>" alt="Card image cap" style="height:110px; width: 130px;">
            <div class="card-body cardstyle mt-1">
-			   <h5 class="card-title">Pyramid Valley International</h5>
+			   <h5 class="card-title"><%= temp['title']%></h5>
            </div>
          </div> 
 		</div>
-		<div class="col-lg-4">
+		<%
+  temp=[]})
+%>
+		<!-- <div class="col-lg-4">
 			<div class="card card-partner mb-3" id="card2">
              <img class="card-img-top" src="/images/about/7.png" alt="Card image cap" style="height:110px; width: 130px;">
            <div class="card-body cardstyle mt-1">
@@ -2729,7 +2824,7 @@ temp=[]})
            </div>
          </div> 
 		</div>
-	</div>
+	</div> -->
 	
 	
 	</div>	
