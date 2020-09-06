@@ -1,27 +1,48 @@
 <%- include("partials/header") %>
-
+<% function compare(a, b) {
+	if (a.rank < b.rank){
+	  return -1;
+	}
+	if (a.rank > b.rank){
+	  return 1;
+	}
+	return 0;
+  }%>
 <section>
 	
 <div class="row">
+	<% contact_top[0].elements.sort(compare).forEach((event,key) => {
+		temp = []
+		temp['id'] = event._id
+		temp['rank']=event.rank
+		event.data.forEach((type) => {
+		  temp[type.name] = type.value
+		})
+		if(key<=0){
+		%>
     <div class="thumbnail text-center">
-        <img src="/images/programs/1.png" alt="" class="img-responsive w-100">
+        <img src="/images/uploads/<%= temp['img']%>" alt="" class="img-responsive w-100">
         <div class="caption-donate justify-content-center" id="contact">
             <div class="row">
 				<div class="col-lg-12 img-text">
 					<h1>
-						Become a part of Buddha-CEO
+						<%= temp ['title']%>
 					</h1>
-					<p>The foundation primarily relies on donations to run its activities and operations. </p>
+					<!-- <p>The foundation primarily relies on donations to run its activities and operations. </p> -->
 
-<p class="mt-4">There are several costs involved in running the operations. The foundation is hiring teachers, facilitators, promotional team members, content team members, publishing team and operations team to carry out its activities in the first year. While some members are volunteers, few paid staff too are hired in critical roles. </p>
+<!-- <p class="mt-4">There are several costs involved in running the operations. The foundation is hiring teachers, facilitators, promotional team members, content team members, publishing team and operations team to carry out its activities in the first year. While some members are volunteers, few paid staff too are hired in critical roles. </p> -->
 
-<p class="mt-4">In addition, the foundation incurs technology costs, promotional costs, digital content development costs including meditation music development, logistics costs and office space costs.</p> 
+<!-- <p class="mt-4">In addition, the foundation incurs technology costs, promotional costs, digital content development costs including meditation music development, logistics costs and office space costs.</p>  -->
 
-<p class="mt-4">There are multiple ways we can stay connected, whether it is for a simple query or for a long term association. </p>
+<p class="mt-4"><%= temp ['description']%></p>
 				</div>
 			</div>
         </div>
-    </div>
+	</div>
+	<%
+  
+}temp=[]})
+%>
 </div>
 
 </section>
@@ -36,7 +57,7 @@
 sign up for our news letter. 
 You may also follow us on 
 our social media pages.</p>
-								  <a href="#Newsletter" class="btn btn-lg  button" data-toggle="modal" style="background-color: #f89334; color: white; margin-top: 90px;">Signup</a>
+								  <a href="#Newsletter" class="btn btn-lg  button" data-toggle="modal"   style="background-color: #7d7d7d; color: white; margin-top: 90px;">Signup</a>
                             </div>
                         </div>
 				</div>
@@ -45,7 +66,7 @@ our social media pages.</p>
                              <div class="card-body cardstyle">
 								  <h5 class="card-title" style="color: #73aa2e;">Volunteer Signup</h5>
                                 <p class="card-text">We are a non-profit organisation and are always looking for help. Do fill up the Volunteer Form and someone will contact  you when we have volunteer positions opened up.</p>
-								  <a href="#volunteer" class="btn btn-lg  button" data-toggle="modal" style="background-color: #73aa2e; color: white;">Signup</a>
+								  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPLFtxWgRb1ZHr1XIjlNLYuWywf0gfuohJI6cF3RNcrZ7BgQ/viewform?usp=sf_link" class="btn btn-lg  button" target="_blank"  style="background-color: #73aa2e; color: white;">Signup</a>
                             </div>
                         </div>
 				</div>
@@ -55,7 +76,7 @@ our social media pages.</p>
 								  <h5 class="card-title" style="color: #0771bc;">General / Event related 
 Queries</h5>
                                 <p class="card-text">Do submit this form to have someone contact you by email / phone within 48 hours.</p>
-								  <a href="#general" class="btn btn-lg button " data-toggle="modal" style="background-color: #0771bc; color: white; margin-top: 65px;">Signup</a>
+								  <a href="https://www.events.buddhaceo.org/contact" class="btn btn-lg button" target="_blank"  style="background-color: #0771bc; color: white; margin-top: 65px;">Signup</a>
                             </div>
                         </div>
 				</div>
@@ -64,7 +85,7 @@ Queries</h5>
                              <div class="card-body cardstyle">
 								  <h5 class="card-title" style="color: #ad63f6;">Corporate Programs</h5>
                                 <p class="card-text">A deeper universal intelligence that helps us to be our best in every situation.</p>
-								  <a href="#corporate" class="btn btn-lg button " data-toggle="modal" style="background-color: #ad63f6; color: white; margin-top: 65px;">Signup</a>
+								  <a href="https://www.events.buddhaceo.org/contact" class="btn btn-lg button" target="_blank" style="background-color: #ad63f6; color: white; margin-top: 65px;">Signup</a>
                             </div>
                         </div>
 				</div>
@@ -78,9 +99,34 @@ Queries</h5>
 				<strong>You may also contact us at the following:</strong> 
 			</p><br>
 			<p>
-				<strong>Email: </strong><a href="#">info@buddhaceofoundation.org</a><br>
-		
-				<strong>Phone: </strong><a href="#">+91 8328400224</a> </p>  
+				<% email[0].elements.sort(compare).forEach((event,key) => {
+					temp = []
+					temp['id'] = event._id
+					temp['rank']=event.rank
+					event.data.forEach((type) => {
+					  temp[type.name] = type.value
+					})
+					
+					%>
+				<strong>Email: </strong><a href="#"><%= temp['email']%></a><br>
+				<%
+  
+			temp=[]})
+			%>
+			<% phone[0].elements.sort(compare).forEach((event,key) => {
+				temp = []
+				temp['id'] = event._id
+				temp['rank']=event.rank
+				event.data.forEach((type) => {
+				  temp[type.name] = type.value
+				})
+				
+				%>
+				<strong>Phone: </strong><a href="#"><%= temp['phone']%></a> </p>  
+				<%
+  
+			temp=[]})
+			%>
 		</div>
 	</div>
 

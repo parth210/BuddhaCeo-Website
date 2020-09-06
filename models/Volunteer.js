@@ -7,15 +7,15 @@ const VolunteerSchema= new mongoose.Schema(
     city_country:{type:String,required:true},
     role:{type:String,required:true},
     meditation:{type:String,required:true},
-    service:{type:Boolean,required:true},
+    service:{type:String,required:true},
     categories:
-    [
-        {name:{type:String},extra:{type:String}}
+    [   
+        {type:String}
     ],
-    contribution:
-    [
-        {name:{type:String},extra:{type:String}}
-    ],
+    categories_others:{type:String},
+    contribution:{type:String},
+    contribution_others:{type:String}
+    ,
     intrests:{type:String,required:true},
 }
 );

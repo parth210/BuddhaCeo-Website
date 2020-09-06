@@ -1,12 +1,12 @@
-var express        = require("express"),
-    app            = express(),
-    bodyParser     = require("body-parser");
-
-var routes        = require("./routes/routes"),
+var express       = require("express"),
+    app           = express(),
+    bodyParser    = require("body-parser"),
+    multer        = require("multer"),
+    routes        = require("./routes/routes");
 
 
 //                 API WITH MONGODB BELOW
-api      = require("./routes/api");
+var api      = require("./routes/api");
 var mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://cluster0.cmgg5.mongodb.net/ceo?retryWrites=true&w=majority', {user: 'ceo', pass: 'jcb123'});
 var db = mongoose.connection;

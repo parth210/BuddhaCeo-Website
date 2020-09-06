@@ -1,0 +1,62 @@
+<%- include("partials/sidebar") %>
+
+<div class="modal fade" id="corporate_top_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add corporate_top</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/home/corporate_top" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>rank</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="rank">
+  </div>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="title" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description" aria-describedby="emailHelp" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input name="img" type="file" class="form-control"></input>
+  </div>
+  <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="admin-heads">Newsletter</h2>
+<hr>
+<div style="display: flex;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S. No.</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% var i = 1;
+      newsletter.forEach((key) => {
+        %>
+      <tr>
+        <th><%= i %></th>
+        <td><%= key['name'] %></td>
+        <td><%= key['email'] %></td>
+      </tr>
+      <% i= i+1; }) %>
+    </tbody>
+  </table>
+
+</div>
+<br>
+<%- include("partials/admin_end") %>

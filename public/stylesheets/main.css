@@ -1116,3 +1116,14 @@ display: none;
 	height: 155px;
     border-radius: 10px!important;
 }
+.card-admin
+{
+	width: 50%;
+	height: 50%;
+	margin :0 20px
+}
+.admin-heads
+{
+	width:70%;
+	display:inline-block;
+}

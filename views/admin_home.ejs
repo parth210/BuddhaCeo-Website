@@ -1,0 +1,397 @@
+<%- include("partials/sidebar") %>
+
+<div class="modal fade" id="carousel_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add carousel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/home/carousel" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>rank</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="rank">
+  </div>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="title" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description" aria-describedby="emailHelp" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input name="img" type="file" class="form-control"></input>
+  </div>
+  <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="admin-heads">Carousel</h2>
+<a class="btn btn-md btn-primary button" href="#carousel_add" data-toggle="modal" style="float:right">Add new</a>
+<hr>
+<div style="display: flex;">
+
+
+<% carousel[0].elements.forEach((car) => {
+  temp = []
+  temp['id'] = car._id
+  temp['rank']=car.rank
+  car.data.forEach((type) => {
+    temp[type.name] = type.value
+  })
+%>
+<div class="modal fade" id="car<%= temp['id'] %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add carousel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/home/carousel" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%= temp['id']; %>" hidden>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
+    <label>rank</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%= temp['rank']; %>">
+  </div>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="title" aria-describedby="emailHelp" value="<%= temp['title']; %>">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description" aria-describedby="emailHelp" class="form-control" ><%= temp['title']; %></textarea>
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input name="img" type="file" class="form-control" value="<%= temp['img']; %>"></input>
+  </div>
+  <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card card-admin eventcard">
+  <img class="card-img-top  e-image" src="/images/uploads/<%= temp['img']; %>" alt="Card image cap" style="object-fit:cover;">
+   <div class="card-body cardstyle">
+       <h5 class="card-title"><%= temp['title']; %></h5>
+       rank:<%= temp['rank']; %>
+      <p class="card-text"><%= temp['description']; %></p>
+        <a class="btn btn-lg btn-primary button" href="#car<%= temp['id'] %>" data-toggle="modal">Edit</a>  <a target="_blank" href="/cms/delete/carousel/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+  </div>
+</div>
+
+<%
+  temp = [];
+})
+%>
+
+</div>
+<br>
+<div class="modal fade" id="events_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/home/events" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>rank</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="rank">
+  </div>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="title" >
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="description"  class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Event url</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="link" >
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input name="img" type="file" class="form-control"></input>
+  </div>
+  <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="admin-heads">Events</h2>
+<a class="btn btn-md btn-primary button" href="#events_add" data-toggle="modal" style="float:right">Add new</a>
+<hr>
+<div style="display: flex;">
+  <% events[0].elements.forEach((event) => {
+    temp = []
+    temp['id'] = event._id
+    temp['rank']=event.rank
+    event.data.forEach((type) => {
+      temp[type.name] = type.value
+    })
+  %>
+  <div class="modal fade" id="eve<%= temp['id'] %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/events" method="POST" enctype="multipart/form-data">
+            <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%= temp['id'] %>" hidden> 
+            <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%= temp['rank'] %>">
+    </div>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="title" value="<%= temp['title'] %>">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description"  class="form-control"><%= temp['description'] %></textarea>
+    </div>
+    <div class="form-group">
+      <label>Event url</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="link" value="<%= temp['link'] %>">
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <input name="img" type="file" class="form-control"></input>
+    </div>
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="card card-admin eventcard">
+  <img class="card-img-top  e-image" src="/images/uploads/<%= temp['img']; %>" alt="Card image cap" style="object-fit:cover;">
+   <div class="card-body cardstyle">
+       <h5 class="card-title"><%= temp['title']; %></h5>
+       rank:<%= temp['rank']; %>
+      <p class="card-text"><%= temp['description']; %></p>
+      <a href="<%= temp['link']; %>">event link :-<%= temp['link']; %></a>
+        <a class="btn btn-lg btn-primary button" href="#eve<%= temp['id']; %>" data-toggle="modal">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/events/<%= temp['id'] %>">Delete</a>
+  </div>
+</div>
+<%
+  temp = [];
+})
+%>
+</div>
+<br>
+
+<br>
+<div class="modal fade" id="testimonial_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/home/testimonial" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>rank</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="rank">
+  </div>
+  <div class="form-group">
+    <label>title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="title">
+  </div>
+  <div class="form-group">
+    <label>description</label>
+    <textarea name="description"  class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label>url</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="url">
+  </div>
+ 
+  <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="admin-heads">Testimonials</h2>
+<a class="btn btn-md btn-primary button" href="#testimonial_add" data-toggle="modal" style="float:right">Add new</a>
+<hr>
+<div style="display: flex;">
+  <% if(testimonial.length>0)testimonial[0].elements.forEach((event) => {
+    temp = []
+    temp['id'] = event._id
+    temp['rank']=event.rank
+    event.data.forEach((type) => {
+      temp[type.name] = type.value
+    })
+  %>
+  <div class="modal fade" id="tes<%=temp['id'];%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/testimonial" method="POST" enctype="multipart/form-data" >
+            <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%=temp['id'];%>" hidden>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%=temp['rank'];%>">
+    </div>
+    <div class="form-group">
+      <label>title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="title" value="<%=temp['title'];%>">
+    </div>
+    <div class="form-group">
+      <label>description</label>
+      <textarea name="description"  class="form-control"><%=temp['description'];%></textarea>
+    </div>
+    <div class="form-group">
+      <label>url</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="url" value="<%=temp['url'];%>">
+    </div>
+   
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="card card-admin eventcard">
+   <div class="card-body cardstyle">
+    rank:<%= temp['rank']; %>
+    <h5 class="card-title"><%= temp['title']; %></h5>
+    <a  href="<%= temp['url'];%>">url:<%= temp['url']; %></a>
+      <p class="card-text"><%= temp['description']; %></p>
+      
+        <a class="btn btn-lg btn-primary button" href="#tes<%=temp['id'];%>" data-toggle="modal">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/testimonial/<%= temp['id'] %>">Delete</a>
+  </div>
+</div>
+<%
+  temp = [];
+})
+%>
+</div>
+<br>
+<div class="modal fade" id="resources_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border: 0;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/cms/home/resources" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>rank</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="rank">
+  </div>
+  <div class="form-group">
+    <label>title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="title">
+  </div>
+ 
+  <div class="form-group">
+    <label>url</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="url">
+  </div>
+ 
+  <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="admin-heads">Resources</h2>
+<a class="btn btn-md btn-primary button" href="#resources_add" data-toggle="modal" style="float:right">Add new</a>
+<hr>
+<div style="display: flex;">
+  <% if(resources.length>0)resources[0].elements.forEach((event) => {
+    temp = []
+    temp['id'] = event._id
+    temp['rank']=event.rank
+    event.data.forEach((type) => {
+      temp[type.name] = type.value
+    })
+  %>
+  <div class="modal fade" id="res<%=temp['id'];%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/resources" method="POST" enctype="multipart/form-data" >
+            <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%=temp['id'];%>" hidden>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%=temp['rank'];%>">
+    </div>
+    <div class="form-group">
+      <label>title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="title" value="<%=temp['title'];%>">
+    </div>
+    
+    <div class="form-group">
+      <label>url</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="url" value="<%=temp['url'];%>">
+    </div>
+   
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="card card-admin eventcard">
+   <div class="card-body cardstyle">
+    rank:<%= temp['rank']; %>
+    <h5 class="card-title"><%= temp['title']; %></h5>
+    <a  href="<%= temp['url'];%>">url:<%= temp['url']; %></a>
+      
+      
+        <a class="btn btn-lg btn-primary button" data-toggle="modal" href="#res<%=temp['id'];%>">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/resources/<%= temp['id'] %>">Delete</a>
+  </div>
+</div>
+<%
+  temp = [];
+})
+%>
+</div>
+<%- include("partials/admin_end") %>
