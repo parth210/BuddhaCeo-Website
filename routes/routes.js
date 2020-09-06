@@ -378,4 +378,13 @@ router.get("/admin/newsletter" , function(req, res) {
 		}
 	})
 })
+router.get("/admin/volunteer" , function(req, res) { 
+	Volunteer.find({}, (err,volunteer) => {
+		if (err) {
+			console.log(err)
+		} else 	{
+			res.render("admin_volunteer",{volunteer});
+		}
+	})
+})
 module.exports = router;
