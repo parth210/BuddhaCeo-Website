@@ -387,4 +387,22 @@ router.get("/admin/volunteer" , function(req, res) {
 		}
 	})
 })
+router.get("/admin/general" , function(req, res) { 
+	General.find({}, (err,general) => {
+		if (err) {
+			console.log(err)
+		} else 	{
+			res.render("admin_general",{general});
+		}
+	})
+})
+router.get("/admin/corporate/response" , function(req, res) { 
+	Corporate.find({}, (err,corp) => {
+		if (err) {
+			console.log(err)
+		} else 	{
+			res.render("corporate_enquiry",{corp});
+		}
+	})
+})
 module.exports = router;

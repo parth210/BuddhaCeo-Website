@@ -117,7 +117,7 @@ router.get('/cms/delete/:type/:id', function (req, res) {
       if (err) {
         console.log(err)
       } else {
-        res.send(deleted)
+        res.redirect("/admin/home")
       }
     })
 })
