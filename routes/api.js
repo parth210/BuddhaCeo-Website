@@ -200,7 +200,7 @@ router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
                 if (err) {
                   console.log(err)
                 } else {
-                  let str=""
+                  
                   res.redirect('/admin/'+req.params.page)
                 }
               })
@@ -221,7 +221,7 @@ router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
                 if (err) {
                   console.log(err)
                 } else {
-                  res.send('added')
+                  res.redirect('/admin/'+req.params.page)
                 }
               })
         }
