@@ -60,6 +60,7 @@
         <form action="/cms/home/carousel" method="POST" enctype="multipart/form-data">
   <div class="form-group">
     <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%= temp['id']; %>" hidden>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
     <label>rank</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%= temp['rank']; %>">
   </div>
@@ -147,6 +148,45 @@
       temp[type.name] = type.value
     })
   %>
+  <div class="modal fade" id="eve<%= temp['id'] %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/events" method="POST" enctype="multipart/form-data">
+            <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%= temp['id'] %>" hidden> 
+            <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%= temp['rank'] %>">
+    </div>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="title" value="<%= temp['title'] %>">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description"  class="form-control"><%= temp['description'] %></textarea>
+    </div>
+    <div class="form-group">
+      <label>Event url</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="link" value="<%= temp['link'] %>">
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <input name="img" type="file" class="form-control"></input>
+    </div>
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="card card-admin eventcard">
   <img class="card-img-top  e-image" src="/images/uploads/<%= temp['img']; %>" alt="Card image cap" style="object-fit:cover;">
    <div class="card-body cardstyle">
@@ -154,7 +194,7 @@
        rank:<%= temp['rank']; %>
       <p class="card-text"><%= temp['description']; %></p>
       <a href="<%= temp['link']; %>">event link :-<%= temp['link']; %></a>
-        <a class="btn btn-lg btn-primary button">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/events/<%= temp['id'] %>">Delete</a>
+        <a class="btn btn-lg btn-primary button" href="#eve<%= temp['id']; %>" data-toggle="modal">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/events/<%= temp['id'] %>">Delete</a>
   </div>
 </div>
 <%
@@ -211,6 +251,42 @@
       temp[type.name] = type.value
     })
   %>
+  <div class="modal fade" id="tes<%=temp['id'];%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/testimonial" method="POST" enctype="multipart/form-data" >
+            <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%=temp['id'];%>" hidden>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%=temp['rank'];%>">
+    </div>
+    <div class="form-group">
+      <label>title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="title" value="<%=temp['title'];%>">
+    </div>
+    <div class="form-group">
+      <label>description</label>
+      <textarea name="description"  class="form-control"><%=temp['description'];%></textarea>
+    </div>
+    <div class="form-group">
+      <label>url</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="url" value="<%=temp['url'];%>">
+    </div>
+   
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="card card-admin eventcard">
    <div class="card-body cardstyle">
     rank:<%= temp['rank']; %>
@@ -218,7 +294,7 @@
     <a  href="<%= temp['url'];%>">url:<%= temp['url']; %></a>
       <p class="card-text"><%= temp['description']; %></p>
       
-        <a class="btn btn-lg btn-primary button">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/testimonial/<%= temp['id'] %>">Delete</a>
+        <a class="btn btn-lg btn-primary button" href="#tes<%=temp['id'];%>" data-toggle="modal">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/testimonial/<%= temp['id'] %>">Delete</a>
   </div>
 </div>
 <%
@@ -246,10 +322,7 @@
     <label>title</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="title">
   </div>
-  <div class="form-group">
-    <label>description</label>
-    <textarea name="description"  class="form-control"></textarea>
-  </div>
+ 
   <div class="form-group">
     <label>url</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="url">
@@ -273,14 +346,47 @@
       temp[type.name] = type.value
     })
   %>
+  <div class="modal fade" id="res<%=temp['id'];%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: 0;">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/cms/home/resources" method="POST" enctype="multipart/form-data" >
+            <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<%=temp['id'];%>" hidden>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="img" value="<%= temp['img']; %>" hidden>
+    <div class="form-group">
+      <label>rank</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="rank" value="<%=temp['rank'];%>">
+    </div>
+    <div class="form-group">
+      <label>title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="title" value="<%=temp['title'];%>">
+    </div>
+    
+    <div class="form-group">
+      <label>url</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" name="url" value="<%=temp['url'];%>">
+    </div>
+   
+    <button type="submit"  class="btn btn-primary button submit-button" style="width: 100%;">Submit</button>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="card card-admin eventcard">
    <div class="card-body cardstyle">
     rank:<%= temp['rank']; %>
     <h5 class="card-title"><%= temp['title']; %></h5>
     <a  href="<%= temp['url'];%>">url:<%= temp['url']; %></a>
-      <p class="card-text"><%= temp['description']; %></p>
       
-        <a class="btn btn-lg btn-primary button">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/resources/<%= temp['id'] %>">Delete</a>
+      
+        <a class="btn btn-lg btn-primary button" data-toggle="modal" href="#res<%=temp['id'];%>">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/resources/<%= temp['id'] %>">Delete</a>
   </div>
 </div>
 <%

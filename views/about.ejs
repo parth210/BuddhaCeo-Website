@@ -1,8 +1,26 @@
 <%- include("partials/header") %>
+<% function compare(a, b) {
+	if (a.rank < b.rank){
+	  return -1;
+	}
+	if (a.rank > b.rank){
+	  return 1;
+	}
+	return 0;
+  }%>
 <section>
 	<div class="row" id="box-search">
+		<% about_top[0].elements.sort(compare).forEach((event,key) => {
+			temp = []
+			temp['id'] = event._id
+			temp['rank']=event.rank
+			event.data.forEach((type) => {
+			  temp[type.name] = type.value
+			})
+			if(key<=0){
+			%>
     <div class="thumbnail text-center front">
-        <img src="/images/about/1.png" alt="" class="img-responsive w-100">
+        <img src="/images/uploads/<%=temp['img']%>" alt="" class="img-responsive w-100">
         <div class="caption justify-content-center">
             <div class="row">
 				<div class="col-lg-6 d-none d-lg-flex align-items-center ilogo">
@@ -10,22 +28,19 @@
 				</div>
 				<div class="col-lg-5 ml-5 img-text">
 					<h1>
-						Our Story
+						<%=temp['title']%>
 					</h1>
 					<p>
-						The “Buddha-CEO Foundation”.. a spiritual non-profit trust registered in
-Karnataka, India.. provides transformative meditation wisdom and
-techniques with a scientific voice to all leaders / aspiring leaders, in a
-compassionate and friendly environment. It enables them to transform inside
-out, and inspires them to inculcate corporate socio-spiritual responsibility
-(CSSR) for greater community harmony and world peace. These leaders are
-empowered through the breath-mindfulness meditation-based wisdom to live
-their dreams, grow their organizations and build harmonious communities!
+						<%=temp['description']%>
                             </p>
 				</div>
 			</div>
         </div>
-    </div>
+	</div>
+	<%
+  
+}temp=[]})
+%>
 </div>
 	
 </section>
@@ -47,10 +62,10 @@ their dreams, grow their organizations and build harmonious communities!
 			<div class="col col-lg-12 text">
 					<p>
 					In today’s connected world, organizations touch many aspects of the lives of
-their employees, families and the larger society.  This is because they have
+their employees, families and the larger society.  This is because they have
 access to and are in control of vast resources in terms of people, material,
-technology and money. The more they touch lives in a sympathetic and
-responsible manner, the greater is the organizational growth and improvement
+technology and money. The more they touch lives in a sympathetic and
+responsible manner, the greater is the organizational growth and improvement
 in the quality of the lives they touch.
                      </p>
 			</div>
@@ -64,8 +79,8 @@ in the quality of the lives they touch.
 			<div class="col col-lg-12 text">
 					<p class="mt-5">
 					     To implement this most effectively, the mindset of the leadership in terms of
-their vision, values and execution ability plays a critical role.  An organizational
-leader empowered with a spirituo-scientific mindset will have a higher vision,
+their vision, values and execution ability plays a critical role.  An organizational
+leader empowered with a Spirituo-Scientific Mindset will have a higher vision,
 empathetic values, friendly and intuitive approach, and responsible execution
 ability.</p>
 			</div>
@@ -141,11 +156,11 @@ that is limited by rigid beliefs, thinking or values can almost never succeed in
 growing a sustainable business or organization neither creating more resources
 for others. Leadership that tends to act greedy or with excessive control over
 teams, can hardly ever enable others to innovate and contribute to the
-organization growth. Leadership that lacks vision or clarity in strategy and
+organization growth. Leadership that lacks vision or clarity in strategy and
 execution can by no means deliver performance and make a difference.
 The core reasons for this kind of traits and resulting lack of performance can
 easily be improved and overcome by any founder and leader through
-transforming and empowering themselves with a “spirituo-scientific” mindset,
+transforming and empowering themselves with a “Spirituo-Scientific” Mindset,
 built from the breath-mindfulness meditation-based wisdom and techniques.
 This does apply to all students as they are the leaders of tomorrow. In India
 alone, 250 million students were going to school in 2019, including more than
@@ -166,13 +181,13 @@ the economy and society in general.
 <div class="container">
 	<div class="row mt-5">
 			<div class="col-12 d-flex justify-content-center text">
-				<h1>Spirituo-Scientific Temper</h1>
+				<h1>Spirituo-Scientific Mindset</h1>
 			</div>
 		</div>
 	<div class="row mt-5 justify-content-center mb-5">
 			<div class="col col-lg-12 text">
 					<p>
-					Spirituo-Scientific temper in the context of businesses can be understood as : </p>
+					Spirituo-Scientific Mindset in the context of businesses can be understood as : </p>
 			</div>
 			<div class="row justify-content-around mt-5">
 				<div class="col-lg-3 col-sm-6 mt-2">
@@ -216,9 +231,9 @@ to be our best in every situation.</p>
 			<div class="row justify-content-center mt-5">
 			<div class="col col-lg-12 col-sm-10 text">
 					<p class="mt-5">
-					    Clearly, a spirituo-scientific mindset allows for broader wisdom to overcome
+					    Clearly, a Spirituo-Scientific Mindset allows for broader wisdom to overcome
 beliefs and unconscious biases, instills higher purpose and vision, and helps
-prevail over greed and the need for power.
+prevail over greed and the need for power.
                      </p>
 				<p class="mt-5">
 					A spirituo-scientific leader has the wisdom to make the best use of the resources
@@ -227,7 +242,7 @@ organization, to their team and communities in particular, and to the whole
 world in general.
 				</p>
 				<p class="mt-5">
-					Spirituo-scientific mindset can be developed in every individual by adopting
+					Spirituo-scientific Mindset can be developed in every individual by adopting
 mindfulness meditation practices and studying spiritual science (including
 Quantum Physics, Neuroscience and Physiology) that is totally independent of
 religion. A spirituo-scientific leader becomes a “Buddha-CEO” by practicing
@@ -320,7 +335,7 @@ leaders (including students) with scientific meditation wisdom.</strong>
 		
 		<div class="row mt-5 justify-content-center">
 			<div class="col col-lg-12 text">
-					<p>The “Buddha-CEO Foundation” provides transformative meditation wisdom and
+					<p>The “Buddha-CEO Quantum Foundation” provides transformative meditation wisdom and
 techniques to all leaders / aspiring leaders, in a compassionate and friendly environment and inspires them to develop corporate socio-spiritual responsibility
 (CSSR) for greater community harmony and prosperity.</p>
 				<p class="mt-5">
@@ -462,7 +477,7 @@ young age.
 		<div class="row mt-2 objective objective-box justify-content-center">
 			<div class="col col-lg-10 text">
 					<p>Promote and support the activities of Pyramid Spiritual Societies Movement
-and of other organizations that align to the core principles and vision of the Buddha-CEO Foundation, in establishing world peace, harmony, and
+and of other organizations that align to the core principles and vision of the Buddha-CEO Quantum Foundation, in establishing world peace, harmony, and
 “fulfilling lives” for every individual and living being on the planet Earth.
                      </p>
 			</div>
@@ -483,7 +498,7 @@ protect forests, clean water, organic farming, animals and nature in general.
 		</div>
 		<div class="row mt-5 justify-content-center">
 			<div class="col col-lg-10 text">
-					<p>As a consequence of enabling meditators, the Buddha-CEO foundation aims to naturally increase among leaders the overall awarenessand active support of two further                               objectives:. 
+					<p>As a consequence of enabling meditators, the Buddha-CEO Quantum Foundation aims to naturally increase among leaders the overall awarenessand active support of two further                               objectives:. 
                      </p>
 			</div>
 		</div>
@@ -642,11 +657,11 @@ and individual fulfilment</p>
                                 <p class="mt-5">Meditation is our 
 									Innate Strength </p>
 
-                               <p>Compassion isour Inner Nature</p>
+                               <p>Compassion is our Inner Nature</p>
 
                                <p>Simplicity is our Vital Culture</p>
                               <p>Equanimity is our Indispensable Character</p>
-                          <p>Positive Energy is our Obvious Standard </p>
+                          <p>Positive Energy is our Obvious Standard </p>
                             </div>
                         </div>
 				</div>
@@ -697,7 +712,7 @@ is our Zenith
 		</div>
 	</div>
 </section>
-<section class="d-none">
+<!-- <section class="d-none">
 	<div id="ag10"class="d-none d-lg-flex">
 		<img src="/images/about/20.png">
 	</div>
@@ -732,8 +747,8 @@ is our Zenith
             </div>
 </div>
 		<!-- <a style="text-align: center" data-toggle="modal" href="#exampleModalLong"> Read More ></a> -->
-    </div> 
-    <%}%> 
+    <!-- </div>  -->
+    <!-- <%}%>  -->
 		<!-- <div class="col-lg-4 justify-content-center mentor">
 			<div class="card mb-3">
 			<img class="card-img-top rounded-circle" src="/images/about/mentor/1.png" alt="Card image cap">
@@ -754,7 +769,7 @@ is our Zenith
  </div>
 			<a  href="#" style="text-align: center"> Read More ></a>
 		</div> -->
-	</div>
+	<!-- </div>
 	<div class="row justify-content-center" style="margin-top: 10%">
 			<div class="col col-lg-6 text">
 					<p>
@@ -764,8 +779,8 @@ is our Zenith
 				
 			</div>
 		</div>
-	<div class="row mt-5">
-    <%for (i=1;i<4;i++){ var key2='apex_council'+i;%>
+	<div class="row mt-5"> -->
+    <!-- <%for (i=1;i<4;i++){ var key2='apex_council'+i;%>
 		<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('<%=key2%>')" onmouseout="contract('<%=key2%>')">
 			<div class="card mb-3 teamcard" id="card3">
 			<img class="card-img-top rounded-circle" src="/images/about/mentor/1.png" alt="Card image cap">
@@ -776,8 +791,8 @@ is our Zenith
             </div>
 </div>
 			<a class="d-none" style="text-align: center" data-toggle="modal" href="#exampleModalLong"> Read More ></a>
-    </div>
-    <%}%>
+    </div> -->
+    <!-- <%}%> -->
 		<!-- <div class="col-lg-4 justify-content-center mentor">
 			<div class="card mb-3">
 			<img class="card-img-top rounded-circle" src="/images/about/mentor/1.png" alt="Card image cap">
@@ -798,7 +813,7 @@ is our Zenith
 </div>
 			<a  href="#" style="text-align: center"> Read More ></a>
 		</div> -->
-	</div>
+	<!-- </div>
 	<div class="row justify-content-center" style="margin-top: 10%">
 			<div class="col col-lg-6 text">
 					<p>
@@ -820,16 +835,16 @@ is our Zenith
             </div>
 </div>
 		<!-- <a  style="text-align: center" data-toggle="modal" href="#exampleModalLong"> Read More ></a> -->
-    </div>
-    <%}%>
-		
+    <!-- </div> -->
+    <!-- <%}%> -->
+		 
 		
 		
 		<!-- modal -->
 		
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content aboutmodal">
       <div class="modal-header m-text" style="border: 0;">
@@ -847,12 +862,12 @@ is our Zenith
 				<div class="col-9 m-text">
 					<p class="mt-5">
 						Chandra Pulamarasetti <br>
-Co-Founder - Buddha-CEO Foundation <br>
+Co-Founder - Buddha-CEO Quantum Foundation <br>
 Former IBM Exec , Entrepreneur 
 
 					</p>
 					<p>
-						A successful entrepreneur, former Vice President of IBM Corporation, transformational meditation coach, and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti co-founded Buddha-CEO Foundation to enable leaders to transform themselves with meditation practice and spiritual wisdom, and adopt to spirituo-social responsibility.</p>
+						A successful entrepreneur, former Vice President of IBM Corporation, transformational meditation coach, and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti co-founded Buddha-CEO Quantum Foundation to enable leaders to transform themselves with meditation practice and spiritual wisdom, and adopt to spirituo-social responsibility.</p>
 
 <p>Chandra attributes a lot of his business and life success including the recent acquisition of his software company,  to the powerful techniques based on meditation and manifestation. He has been practicing meditation for  21 years, teaches regularly to organizational & business leaders and professionals, and participates in several meditation service activities. </p>
 
@@ -868,12 +883,12 @@ Former IBM Exec , Entrepreneur
 				<div class="col-9 m-text">
 					<p class="mt-5">
 						Chandra Pulamarasetti <br>
-Co-Founder - Buddha-CEO Foundation <br>
+Co-Founder - Buddha-CEO Quantum Foundation <br>
 Former IBM Exec , Entrepreneur 
 
 					</p>
 					<p>
-						A successful entrepreneur, former Vice President of IBM Corporation, transformational meditation coach, and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti co-founded Buddha-CEO Foundation to enable leaders to transform themselves with meditation practice and spiritual wisdom, and adopt to spirituo-social responsibility.</p>
+						A successful entrepreneur, former Vice President of IBM Corporation, transformational meditation coach, and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti co-founded Buddha-CEO Quantum Foundation to enable leaders to transform themselves with meditation practice and spiritual wisdom, and adopt to spirituo-social responsibility.</p>
 
 <p>Chandra attributes a lot of his business and life success including the recent acquisition of his software company,  to the powerful techniques based on meditation and manifestation. He has been practicing meditation for  21 years, teaches regularly to organizational & business leaders and professionals, and participates in several meditation service activities. </p>
 
@@ -907,7 +922,7 @@ Former IBM Exec , Entrepreneur
 </div>
 			<a  href="#" style="text-align: center"> Read More ></a>
 		</div> -->
-	</div>
+	<!-- </div>
 	<div class="row justify-content-center" style="margin-top: 10%">
 			<div class="col col-lg-6 text">
 					<p>
@@ -915,8 +930,8 @@ Former IBM Exec , Entrepreneur
 				</p>
 			</div>
 		</div>
-	<div class="row">
-    <%for (i=1;i<49;i++){ var key4='flag_carriers'+i;%>
+	<div class="row"> -->
+    <!-- <%for (i=1;i<49;i++){ var key4='flag_carriers'+i;%>
 		<div class="col-lg-4 col-6" onmouseover="expand('<%=key4%>')" onmouseout="contract('<%=key4%>')">
 			<div class="card mb-3 mt-5 flagcard" id="card3">
                <div class="row no-gutters">
@@ -931,8 +946,8 @@ Former IBM Exec , Entrepreneur
           </div>
         </div>
     </div>
-    </div>
-    <%}%>
+    </div> -->
+    <!-- <%}%> --> 
 		<!-- <div class="col-4">
 				<div class="card mb-3 mt-5">
                <div class="row no-gutters">
@@ -1651,10 +1666,1031 @@ Former IBM Exec , Entrepreneur
           </div>
         </div> -->
    
+		<!-- </div>
+	</div>
+	</div> -->
+<!-- </section> --> 
+<section id="teamSection">
+		<div id="ag10"class="d-none d-lg-flex">
+			<img src="/images/about/20.png">
 		</div>
+	<div class="container mt-5">
+		<div class="row">
+				<div class="col d-flex justify-content-center logo">
+					<img src="/images/Logos/2.png">
+				</div>
+			</div>
+			<div class="row mt-5 mb-5">
+				<div class="col d-flex justify-content-center text">
+					<h1>Team</h1>
+				</div>
+			</div>
+		<div class="row justify-content-center" style="margin-top: 10%">
+				<div class="col col-lg-6 text">
+						<p>
+								Mentors
+					</p>
+					
+				</div>
+			</div>
+		<div class="row mt-5">
+			<% mentors[0].elements.sort(compare).forEach((event,key) => {
+				temp = []
+				temp['id'] = event._id
+				temp['rank']=event.rank
+				event.data.forEach((type) => {
+				  temp[type.name] = type.value
+				})
+				
+				
+				let key1='mentors'+key; %>
+			<div class="col-lg-3 justify-content-center mentor" onmouseover="expand('<%=key1%>')" onmouseout="contract('<%=key1%>')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/uploads/<%= temp['img']%>" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center"><%=temp['title']%></h5>
+				 <p class="card-text" style="padding-bottom: 20px"><%=temp['subtitle']%></p>
+				 <p id="<%=key1%>" class="toggleable"><%=temp['description']%>.</p>
+				</div>
 	</div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
+		</div>
+		<%
+  
+temp=[]})
+%>
+<!-- 	   
+			<div class="col-lg-3 justify-content-center mentor" onmouseover="expand('mentors2')" onmouseout="contract('mentors2')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/1.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Padma Shri D. R. Kaarthikeyan</h5>
+				 <p class="card-text" style="padding-bottom: 20px">Former Director-CBI, NHRC, CRPF</p>
+				 <p id="mentors2" class="toggleable">Devarayapuram Ramasamy Kaarthikeyan is an Indian Police Service officer from Tamil Nadu, and a former Director of the Central Bureau of Investigation and Director-General, National Human Rights Commission. He was awarded the Padma Shri in 2010 for his contribution to the field of Indian Civil Service.</p>
+			  </div>
 	</div>
-</section>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> 
+			</div>
+			<div class="col-lg-3 justify-content-center mentor" onmouseover="expand('mentors3')" onmouseout="contract('mentors3')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/3.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Padma Shri Dr. RV Ramani</h5>
+				 <p class="card-text">Founder and Managing Trustee,Sankara Eye Foundation
+						</p>
+				 <p id="mentors3" class="toggleable">Dr. R.V. Ramani Founder and managing trustee of Sankara Eye Foundation India has been awarded the prestigious ‘Padma Shri’  in recognition of his work in the field of medical service. In 1977, Dr. R.V. Ramani set up Sri Kanchi Kamakoti Medical Centre, which later became Sri Kanchi Kamakoti Medical Trust, a Registered Charitable Trust in India. Through this Trust, he established a network of 10 Super Speciality Eye Hospitals across 7 states in India.</p>
+				</div> 
+	 </div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> 
+		</div>
+		<div class="col-lg-3 justify-content-center mentor" onmouseover="expand('mentors4')" onmouseout="contract('mentors4')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/4.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Dr. S. V. Balasubramaniam</h5>
+				 <p class="card-text">Founder & Chairman, Bannari Amman Group
+					  </p>
+				 <p id="mentors4" class="toggleable">Dr. S. V. Balasubramaniam is the Exec. Chairman at Bannari Amman Sugars. His thorough knowledge in varied fields and hard work for over four decades have propelled the group to a  pivotal position from the mid-'80s. Meticulous planning and speedy execution are his magic strengths..</p>
+				</div> 
+	 </div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> 
+			</div> -->
+			
+		</div>
+		<!-- <div class="row justify-content-center" style="margin-top: 10%">
+				<div class="col col-lg-6 text">
+						<p>
+							APEX Council
+					</p>
+					
+					
+				</div>
+			</div>
+		<div class="row mt-5">
+		<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('apex_council1')" onmouseout="contract('apex_council1')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/6.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Shreyans Daga</h5>
+				 <p class="card-text">Shreans Daga is the Promoter and Managing Director of Betul Oils Limited, Madhya Pradesh. </p>
+				 <p id="apex_council1" class="toggleable">After a profound transformation, he became a pillar of PSSM. He is the Founder President of the Mumbai Pyramid Spiritual Society and Vice-chairman and Trustee of the Pyramid Spiritual Trust, Bangalore. He is instrumental in creating the Maitreya Buddha Pyramid at Pyramid Valley Bengaluru.</p>
+			  </div>
+	</div>
+				<a  href="#" style="text-align: center"> Read More ></a>
+			</div> 
+		
+			
+		
+			<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('apex_council2')" onmouseout="contract('apex_council2')"> 
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/7.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Sai Krupa Sagar</h5>
+				 <p class="card-text">Sai Krupa Sagar is an accomplished technology business leader and a long-time meditator. </p>
+				 <p id="apex_council2" class="toggleable">In his career of 30 years in the IT services industry, Sai has held several roles from developer to software architect to business leader and has worked in India, North America, UK, and Europe. Having gone through an extraordinary transformation in his personal and professional life due to a daily practice of meditation, Sai has undertaken the task of spreading the magic of meditation as a primary side hustle.</p>
+			  </div>
+	</div>
+				<a  href="#" style="text-align: center"> Read More ></a>
+		</div>
+		<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('apex_council3')" onmouseout="contract('apex_council3')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/10.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Dr. Lakshmi Newton, MBBS</h5>
+				 <p class="card-text">Dr. Lakshmi is the Founder of Life Foundation & Quantum Life University and passionate </p>
+				 <p id="apex_council3" class="toggleable">advocate of Vegetarianism since the tender age of 2. She has been a constant companion of Dr. Newton for over three decades, sharing his vision and being a co-presenter with him in workshops and trainings.  Her mission is to increase awareness about the need for harmony with the Animal and Plant Kingdoms and to spread the message of Love, Compassion, and Kinship with Animals.</p>
+				</div>
+	</div>
+				<a  href="#" style="text-align: center"> Read More ></a>
+		</div>
+	  </div> -->
+		<div class="row justify-content-center" style="margin-top: 10%">
+				<div class="col col-lg-6 text">
+						<p>
+							Founding Leaders
+					</p>
+					
+					
+				</div>
+			</div>
+		<div class="row mt-5">
+	
+			<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('founding_leaders1')" onmouseout="contract('founding_leaders1')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/11.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Chandra Pulamarasetti</h5>
+				 <p class="card-text">Successful Entrepreneur, Former VP, IBM Corporation
+					  </p>
+				<p id="founding_leaders1" class="toggleable">Chandra is a successful entrepreneur, former Vice President of IBM Corporation,transformational meditation coach,and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti attributes a lot of his success including the recent acquisition of his software company,  to the powerful techniques based on meditation and manifestation. He has been practicing meditation for over 20 years now, teaches regularly to organizational & business leaders and professionals, and participates in several meditation service activities.</p>
+				</div>
+	</div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
+		</div>
+		<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('founding_leaders2')" onmouseout="contract('founding_leaders2')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/8.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Laurence Guihard-Joly</h5>
+				 <p class="card-text" style="padding-bottom: 20px">Former General Manager, IBM Corporation </p>
+				<p id="founding_leaders2" class="toggleable">Laurence is a dynamic executive and successful leader. Laurence was general
+						manager Hybrid Cloud Infrastructure Services at IBM Services and Sponsor of
+						Mindfulness at IBM till recently. Laurence holds executive large deal makers from
+						the University of Pennsylvania – The Wharton School and Business
+						Administration and Management, General/International Business from Ecole
+						Superieure de Commerce de Lille (SKEMA now)- France. Laurence is Author at
+						IBM service Blog and THINK Blog.</p>
+				</div>
+	</div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
+		</div>
+		<div class="col-lg-4 justify-content-center mentor" onmouseover="expand('founding_leaders3')" onmouseout="contract('founding_leaders3')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/9.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Vani Dadi</h5>
+				 <p class="card-text" style="padding-bottom: 20px">Founder Director, SoulTrends Meditation Studio </p>
+				<p id="founding_leaders3" class="toggleable">Vani Dadi is a senior meditation master, an experienced spiritual counsellor, and a harmonious homemaker who attributes her abilities to her spiritual way of living. She feels grateful for imparting spiritual education to her children, her extended family and community. She has been practising meditation for 20 years now. 
+						She is the co-founder and advisor of two empowering spiritual organizations called SoulTrends Meditation Studio and Chandrasekhara Mahaswamy Pyramid Center, both of which impart meditation and wisdom free of cost to rural and urban residents respectively. 
+						.</p>
+				</div>
+	</div>
+				<!-- <a  href="#" style="text-align: center"> Read More ></a> -->
+		</div>
+			</div>
+			
+			
+			<!-- modal -->
+			
+	
+	<!-- Modal -->
+	<!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-xl" role="document">
+		<div class="modal-content aboutmodal">
+		  <div class="modal-header m-text" style="border: 0;">
+			<h5 class="modal-title" id="exampleModalLongTitle">Mentors <i class="fas fa-caret-down"></i></h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<div class=container>
+				<div class="row">
+					<div class="col-3">
+						<img src="/images/about/mentor/1.png" style="height: 30%">
+					</div>
+					<div class="col-9 m-text">
+						<p class="mt-5">
+							Chandra Pulamarasetti <br>
+	Co-Founder - Buddha-CEO Quantum Foundation <br>
+	Former IBM Exec , Entrepreneur 
+	
+						</p>
+						<p>
+							A successful entrepreneur, former Vice President of IBM Corporation, transformational meditation coach, and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti co-founded Buddha-CEO Quantum Foundation to enable leaders to transform themselves with meditation practice and spiritual wisdom, and adopt to spirituo-social responsibility.</p>
+	
+	<p>Chandra attributes a lot of his business and life success including the recent acquisition of his software company,  to the powerful techniques based on meditation and manifestation. He has been practicing meditation for  21 years, teaches regularly to organizational & business leaders and professionals, and participates in several meditation service activities. </p>
+	
+	<p>Chandra is a computer science engineer from BITS, Pilani and a core technologist as well at his heart with 2 patents to his credit. Chandra lives in Bangalore with his wife Vani and two children Alekhya and Sanath.  Vani and Chandra run a meditation center called SoulTrends Meditation studio in Bangalore, and another meditation center along with her sister,  in Visakhapatnam rural areas to teach meditation to 500 schools.
+	
+						</p>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-3">
+						<img src="/images/about/mentor/1.png" style="height: 30%">
+					</div>
+					<div class="col-9 m-text">
+						<p class="mt-5">
+							Chandra Pulamarasetti <br>
+	Co-Founder - Buddha-CEO Quantum Foundation <br>
+	Former IBM Exec , Entrepreneur 
+	
+						</p>
+						<p>
+							A successful entrepreneur, former Vice President of IBM Corporation, transformational meditation coach, and board member of few non-profits including Pyramid Valley International, Chandra Pulamarasetti co-founded Buddha-CEO Quantum Foundation to enable leaders to transform themselves with meditation practice and spiritual wisdom, and adopt to spirituo-social responsibility.</p>
+	
+	<p>Chandra attributes a lot of his business and life success including the recent acquisition of his software company,  to the powerful techniques based on meditation and manifestation. He has been practicing meditation for  21 years, teaches regularly to organizational & business leaders and professionals, and participates in several meditation service activities. </p>
+	
+	<p>Chandra is a computer science engineer from BITS, Pilani and a core technologist as well at his heart with 2 patents to his credit. Chandra lives in Bangalore with his wife Vani and two children Alekhya and Sanath.  Vani and Chandra run a meditation center called SoulTrends Meditation studio in Bangalore, and another meditation center along with her sister,  in Visakhapatnam rural areas to teach meditation to 500 schools.
+	
+						</p>
+					</div>
+				</div>
+		  </div>
+		</div>
+	  </div>
+	</div> -->
+		
+			<!-- <div class="col-lg-4 justify-content-center mentor">
+				<div class="card mb-3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/1.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Card title</h5>
+				 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			  </div>
+	</div>
+				<a  href="#" style="text-align: center"> Read More ></a>
+			</div>
+			<div class="col-lg-4 justify-content-center mentor"  onmouseover="expand('founding_leaders3')" onmouseout="contract('founding_leaders3')">
+				<div class="card mb-3 teamcard" id="card3">
+				<img class="card-img-top rounded-circle" src="/images/about/mentor/9.png" alt="Card image cap">
+				<div class="card-body justify-content-center">
+				<h5 class="card-title" style="text-align: center">Vani Dadi</h5>
+				 <p class="card-text">Vani Dadi is a senior meditation master, an experienced spiritual counsellor,</p>
+				 <p id="founding_leaders3" class="toggleable">and a harmonious homemaker who attributes her abilities to her spiritual way of living. She feels grateful for imparting spiritual education to her children, her extended family and community. She has been practising meditation for 20 years now.</p>
+			  </div>
+	</div>
+				<a  href="#" style="text-align: center"> Read More ></a>
+			</div>
+		</div>
+		<div class="row justify-content-center" style="margin-top: 10%">
+				<div class="col col-lg-6 text">
+						<p>
+							Flag Carriers
+					</p>
+				</div>
+			</div>
+		<div class="row">
+		<%for (i=1;i<49;i++){ var key4='flag_carriers'+i;%>
+			<div class="col-lg-4 col-6" onmouseover="expand('<%=key4%>')" onmouseout="contract('<%=key4%>')">
+				<div class="card mb-3 mt-5 flagcard" id="card3">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+					   <p id="<%=key4%>" class="toggleable mt-5">Molestiae odit fugit cum. Perferendis fugiat quaerat dolorum est omnis. Atque qui rerum harum vel modi pariatur corrupti. Ipsam consequatur expedita aut accusantium neque iusto molestiae. Atque et fugiat voluptate nobis ut.</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+		</div> -->
+		<!-- <%}%> -->
+			<!-- <div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+		</div>
+			<div class="row">
+			<div class="col-4">
+				<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+				</div>
+			  </div>
+			</div>
+		</div>
+			</div>
+			<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div>
+	   
+			</div>
+		</div>
+					<div class="col-4">
+					<div class="card mb-3 mt-5">
+				   <div class="row no-gutters">
+					<div class="col-md-4">
+					  <img src="/images/programs/card.png" class="card-img" alt="...">
+					</div>
+				 <div class="col-md-8">
+				 <div class="card-body">
+					   <h5 class="card-title">Name of the person </h5>
+			   </div>
+			  </div>
+			</div> -->
+	   
+			 </div>
+		</div> 
+		
+	</section>
 <section>
 <div class="container mt-5">
 	<div class="row">

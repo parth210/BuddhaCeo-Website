@@ -4,27 +4,139 @@ var router        = express.Router();
 var CMS = require("../models/CMS");
 
 router.get("/" , function(req, res) {
-	res.render("home");
+	CMS.find({type: 'carousel'}, (err, carousel) => {
+		if (err) {
+			console.log(err)
+		}
+		else
+		{
+			CMS.find({type: 'events'}, (err, events) => {
+				if (err) {
+					console.log(err)
+				}
+				else
+				{
+					CMS.find({type: 'testimonial'}, (err, testimonial) => {
+						if (err) {
+							console.log(err)
+						}
+						else
+						{
+							CMS.find({type: 'resources'}, (err, resources) => {
+								if (err) {
+									console.log(err)
+								}
+								else
+								{
+									res.render("home",{carousel,events,resources,testimonial});
+								}
+							})
+						}
+					})
+				}
+			})
+		}
+	})
 })
 
 router.get("/about" , function(req, res) {
-	res.render("about");
+	CMS.find({type: 'about_top'}, (err, about_top) => {
+		if (err) {
+			console.log(err)
+		}
+		else
+		{
+			CMS.find({type: 'mentors'}, (err, mentors) => {
+				if (err) {
+					console.log(err)
+				}
+				else
+				{
+					res.render("about",{about_top,mentors});
+				}
+			})
+		}
+	})
 })
 
 router.get("/ourprograms" , function(req, res) {
-	res.render("programs");
+	CMS.find({type: 'events_top'}, (err, events_top) => {
+		if (err) {
+			console.log(err)
+		}
+		else
+		{
+			CMS.find({type: 'w_c'}, (err, w_c) => {
+				if (err) {
+					console.log(err)
+				}
+				else
+				{
+					res.render("programs",{events_top,w_c});
+				}
+			})
+		}
+	})
 })
 
 router.get("/donate" , function(req, res) {
-	res.render("donate");
+	CMS.find({type: 'donate_top'}, (err, donate_top) => {
+		if (err) {
+			console.log(err)
+		}
+		else
+		{
+			CMS.find({type: 'donate'}, (err, donate) => {
+				if (err) {
+					console.log(err)
+				}
+				else
+				{
+					res.render("donate",{donate_top,donate});
+				}
+			})
+		}
+	})
 })
 
 router.get("/corporateprograms" , function(req, res) {
-	res.render("corporate");
+	CMS.find({type: 'corporate_top'}, (err, corporate_top) => {
+		if (err) {
+			console.log(err)
+		}
+		else
+		{
+			res.render("corporate",{corporate_top});
+		}
+	})
 })
 
 router.get("/contact" , function(req, res) {
-	res.render("contact");
+	CMS.find({type: 'contact_top'}, (err, contact_top) => {
+		if (err) {
+			console.log(err)
+		}
+		else
+		{
+			CMS.find({type: 'email'}, (err, email) => {
+				if (err) {
+					console.log(err)
+				}
+				else
+				{
+					CMS.find({type: 'phone'}, (err, phone) => {
+						if (err) {
+							console.log(err)
+						}
+						else
+						{
+							res.render("contact",{contact_top,email,phone});
+						}
+					})
+				}
+			})
+		}
+	})
 })
 
 router.get("/admin/home" , function(req, res) {

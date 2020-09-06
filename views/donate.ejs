@@ -1,45 +1,81 @@
 <%- include("partials/header") %>
+<% function compare(a, b) {
+	if (a.rank < b.rank){
+	  return -1;
+	}
+	if (a.rank > b.rank){
+	  return 1;
+	}
+	return 0;
+  }%>
  <section>
 <div class="row">
+  <% donate_top[0].elements.sort(compare).forEach((event,key) => {
+    temp = []
+    temp['id'] = event._id
+    temp['rank']=event.rank
+    event.data.forEach((type) => {
+      temp[type.name] = type.value
+    })
+    if(key<=0){
+    %>
     <div class="thumbnail text-center front">
-        <img src="/images/donate/1.png" alt="" class="img-responsive w-100">
+        <img src="/images/uploads/<%=temp['img']%>" alt="" class="img-responsive w-100">
         <div class="caption-donate justify-content-center">
             <div class="row">
 				<div class="col-lg-12 img-text">
 					<h1>
-						Contribute Today
+					<%= temp['title']%>
 					</h1>
-					<p>The foundation primarily relies on donations to run its activities and operations. </p>
+					<p><%= temp['description']%> </p>
 
-<p class="mt-4">There are several costs involved in running the operations. The foundation is hiring teachers, facilitators, promotional team members, content team members, publishing team and operations team to carry out its activities in the first year. While some members are volunteers, few paid staff too are hired in critical roles. </p>
+<!-- <p class="mt-4">Your generous contributions today will make a huge difference in the lives of
+    many. Kindly find below current campaigns for donations. Thank you. </p> -->
 
-<p class="mt-4 d-none d-lg-flex">In addition, the foundation incurs technology costs, promotional costs, digital content development costs including meditation music development, logistics costs and office space costs.</p> 
+<!-- <p class="mt-4 d-none d-lg-flex">In addition, the foundation incurs technology costs, promotional costs, digital content development costs including meditation music development, logistics costs and office space costs.</p>  -->
 
-<p class="mt-4 d-none d-lg-flex">There are multiple ways we can stay connected, whether it is for a simple query or for a long term association. </p>
+<!-- <p class="mt-4 d-none d-lg-flex">There are multiple ways we can stay connected, whether it is for a simple query or for a long term association. </p> -->
 				</div>
 			</div>
         </div>
     </div>
+    <%
+  
+  }temp=[]})
+  %>
 	</div>
 </section> 
 <section>
 	<div class="container">
+    <% donate[0].elements.sort(compare).forEach((event,key) => {
+      temp = []
+      temp['id'] = event._id
+      temp['rank']=event.rank
+      event.data.forEach((type) => {
+        temp[type.name] = type.value
+      })
+      
+      %>
 		<div class="card mb-3 mt-5 imgcard-donate" id="card2">
   <div class="row no-gutters">
     <div class="col-md-4 cimage-donate">
-      <img src="/images/programs/card.png" class="card-img" alt="...">
+      <img src="/images/uploads/<%= temp['img'] %>" class="card-img" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body ctext">
-        <h5 class="card-title">Pyramid Valley Campus Infrastructure expansion
+        <h5 class="card-title"><%= temp['title'] %>
         </h5>
-        <p>This campaign is to raise funds for the additional cabling infrastructure to be setup. Payments from these funds will be distributed to KEB and local internet service providers - for             their services in providing enhanced cabling and connectivity. Your contributions to this project will help serve the transformation journeys of millions more - efficiently. Please                make your generous contributions to this temple of inner-transformation.</p>
-		  <button type="button" class="btn btn-primary btn-lg button" style="margin-left: 75%">Donate</button>
+        <p><%= temp['description'] %></p>
+		  <button type="button" class="btn btn-primary btn-lg button" style="margin-left: 75%"><a href="<%= temp['link'] %>" target="_blank" style="color:#ffffff;text-decoration:none"> Donate</a></button>
       </div>
     </div>
   </div>
 </div>
-	<div class="card mb-3 mt-2 imgcard-donate" id="card2">
+<%
+  
+temp=[]})
+%>
+	<!-- <div class="card mb-3 mt-2 imgcard-donate" id="card2">
   <div class="row no-gutters">
     <div class="col-md-4 cimage-donate">
       <img src="/images/programs/card.png" class="card-img" alt="...">
@@ -49,7 +85,7 @@
         <h5 class="card-title">PSSM Spiritual Magazines Operations Fund
          </h5>
         <p>This campaign is to raise funds to continue the publication, printing and distribution of this life-transforming literature. Payments from this fund will cover the costs of designing,        printing and distributing the above set of PSSM magazines/ periodicals. PLEASE DONATE GENEROUSLY TO CONTINUE AND EXPAND THE CIRCULATION OF THESE INSIGHTFUL MAGAZINES. Your individual              contribution will transform hundreds of lives through this gift of education and inspiration.</p>
-		  <button type="button" class="btn btn-primary btn-lg button" style="margin-left: 75%">Donate</button>
+		  <button type="button" class="btn btn-primary btn-lg button" style="margin-left: 75%"><a href="https://milaap.org/fundraisers/support-pyramid-spiritual-societies-movement" target="_blank" style="color:#ffffff;text-decoration:none"> Donate</a></button>
       </div>
     </div>
   </div>
@@ -71,11 +107,11 @@ members are volunteers, few paid staff too are hired in critical roles.
 In addition, the foundation incurs technology costs, promotional costs, digital
 content development costs including meditation music development, logistics costs
 and office space costs.</p>
-		  <button type="button" class="btn btn-primary btn-lg button" style="margin-left: 75%">Donate</button>
+		  <button type="button" disabled class="btn btn-primary btn-lg button" style="margin-left: 75%">Donate</button>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 		
 		
 		

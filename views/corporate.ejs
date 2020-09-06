@@ -1,23 +1,45 @@
 <%- include("partials/header") %>
+<% function compare(a, b) {
+	if (a.rank < b.rank){
+	  return -1;
+	}
+	if (a.rank > b.rank){
+	  return 1;
+	}
+	return 0;
+  }%>
  <section>
 <div class="row" id="box-search">
+	<% corporate_top[0].elements.sort(compare).forEach((event,key) => {
+		temp = []
+		temp['id'] = event._id
+		temp['rank']=event.rank
+		event.data.forEach((type) => {
+		  temp[type.name] = type.value
+		})
+		if(key<=0){
+		%>
     <div class="thumbnail text-center front">
-        <img src="/images/corporate/3.jpg" alt="" class="img-responsive w-100">
+        <img src="/images/uploads/<%= temp['img']%>" alt="" class="img-responsive w-100">
         <div class="caption-corp">
             <div class="row justify-content-end">
 				<div class="col-lg-5 img-text justify-content-end" id="corporate">
 					
 					<p class=" d-sm-flex">
-						The Buddha-CEO foundation in association with some of its partners, is offering its programs tailor made to large organizations, corporations and governments. All the                              programs are based on powerful practice of breath-mindfulness meditation and its benefits in gaining personal fulfilment and organizational growth.
+						<%= temp['description']%>
                             </p>
 					<div>
-						<button type="button" class="btn btn-primary btn-md button" style="margin-right: 100%;">Register</button>
+						<a href="https://www.events.buddhaceo.org/contact" target="_blank"><button type="button" class="btn btn-primary btn-md button" style="margin-right: 100%;">Register</button></a>
 					</div>
 					
 				</div>
 			</div>
         </div>
-    </div>
+	</div>
+	<%
+  
+}temp=[]})
+%>
 </div>
 	<!-- <p class=" d-sm-flex">
 						The Buddha-CEO foundation in association with some of its partners, is offering its programs tailor made to large organizations, corporations and governments. All the                              programs are based on powerful practice of breath-mindfulness meditation and its benefits in gaining personal fulfilment and organizational growth.
@@ -33,7 +55,7 @@
 	<div id="cg3" class="d-none d-lg-flex">
 		<img src="/images/corporate/4.png">
 	</div>
-	<div id="cg4" class="d-none d-lg-flex">
+	<!-- <div id="cg4" class="d-none d-lg-flex">
 		<img src="/images/corporate/5.png">
 	</div>
 	<div id="cg5" class="d-none d-lg-flex">
@@ -41,65 +63,65 @@
 	</div>
 	<div id="cg6" class="d-none d-lg-flex">
 		<img src="/images/corporate/5.png">
-	</div>
+	</div> -->
 	
-    <div class="container-fluid" id="testimonials">
+    <!-- <div class="container-fluid" id="testimonials">
 		<div class="row justify-content-center">
 			<div class="col-12 test">
 			</div>
 		</div>
 		<div class="row mt-2 justify-content-center">
-			<div class="col-lg-12">
+			<div class="col-lg-12"> -->
 				
 						<!-- Section: Testimonials v.2 -->
-				<div class="row justify-content-center">
+				<!-- <div class="row justify-content-center">
 					<div class="col-lg-6  text-center">
-						<div class="wrapper-carousel-fix">
+						<div class="wrapper-carousel-fix"> -->
     <!-- Carousel Wrapper -->
-    <div id="carousel-example-1" class="carousel no-flex testimonial-carousel slide carousel-fade" data-ride="carousel"
+    <!-- <div id="carousel-example-1" class="carousel no-flex testimonial-carousel slide carousel-fade" data-ride="carousel"
       data-interval="false">
 		 <ul class="carousel-indicators tindicators">
         <li data-target="#carousel-example-1" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-1" data-slide-to="1"></li>
         <li data-target="#carousel-example-1" data-slide-to="2"></li>
-      </ul>
+      </ul> -->
       <!--Slides-->
-      <div class="carousel-inner" role="listbox">
+      <!-- <div class="carousel-inner" role="listbox"> -->
         <!--First slide-->
-        <div class="carousel-item active">
-          <div class="testimonial twrap">
+        <!-- <div class="carousel-item active">
+          <div class="testimonial twrap"> -->
             <!--Avatar-->
-            <div class="avatar mx-auto mb-4 testimage">
+            <!-- <div class="avatar mx-auto mb-4 testimage">
               <img src="/images/about/mentor/1.png" class="rounded-circle img-fluid"
                 alt="First sample avatar image">
-            </div>
+            </div> -->
             <!--Content-->
-			  <div class="tcontent">
+			  <!-- <div class="tcontent">
 				  <p class="mt-5">
               <i class="fas fa-quote-left"></i> “Health is not just about physical health, but it’s also about 
 mental, emotional, spiritual and social well being, which results 
 in good attitude and enthusiasm. This meditation program 
 enhances all these aspects of life.”
             </p>
-			  <hr>
+			  <hr> -->
           <!-- <h4 class="font-weight-bold">Anna Deynah</h4> -->
-            <h6 class="font-weight-bold my-3">Padma Shri D. R. Kaarthikeyan
+            <!-- <h6 class="font-weight-bold my-3">Padma Shri D. R. Kaarthikeyan
 Former Director-CBI, NHRC, CRPF</h6>
 			  </div>
             
           </div>
-        </div>
+        </div> -->
         <!--First slide-->
         <!--Second slide-->
-        <div class="carousel-item">
-          <div class="testimonial twrap">
+        <!-- <div class="carousel-item">
+          <div class="testimonial twrap"> -->
             <!--Avatar-->
-            <div class="avatar mx-auto mb-4 testimage">
+            <!-- <div class="avatar mx-auto mb-4 testimage">
               <img src="/images/about/mentor/1.png" class="rounded-circle img-fluid"
                 alt="Second sample avatar image">
-            </div>
+            </div> -->
             <!--Content-->
-			  <div class="tcontent">
+			  <!-- <div class="tcontent">
 				  <p class="mt-5">
               <i class="fas fa-quote-left"></i> 
               <i class="fas fa-quote-left"></i> “Health is not just about physical health, but it’s also about 
@@ -111,18 +133,18 @@ enhances all these aspects of life.” </p>
             <h6 class="font-weight-bold my-3">Photographer at Studio LA</h6>
 			  </div>
           </div>
-        </div>
+        </div> -->
         <!--Second slide-->
         <!--Third slide-->
-        <div class="carousel-item">
-          <div class="testimonial twrap">
+        <!-- <div class="carousel-item">
+          <div class="testimonial twrap"> -->
             <!--Avatar-->
-            <div class="avatar mx-auto mb-4 testimage">
+            <!-- <div class="avatar mx-auto mb-4 testimage">
               <img src="/images/about/mentor/1.png" class="rounded-circle img-fluid"
                 alt="Third sample avatar image">
-            </div>
+            </div> -->
             <!--Content-->
-			  <div class="tcontent">
+			  <!-- <div class="tcontent">
 				  <p class="mt-5">
               <i class="fas fa-quote-left"></i>
               <i class="fas fa-quote-left"></i> “Health is not just about physical health, but it’s also about 
@@ -135,23 +157,23 @@ enhances all these aspects of life.”</p>
 			  </div>
             
           </div>
-        </div>
+        </div> -->
         <!--Third slide-->
-      </div>
+      <!-- </div> -->
       <!--Slides-->
       <!--Controls-->
-		<a class="carousel-control-prev d-lg-none" href="#carousel-example-1" role="button" data-slide="prev">
+		<!-- <a class="carousel-control-prev d-lg-none" href="#carousel-example-1" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
 </a>
 <a class="carousel-control-next d-lg-none" href="#carousel-example-1" role="button" data-slide="next">
          <span class="carousel-control-next-icon" aria-hidden="true"></span>
          <span class="sr-only">Next</span>
-</a>
+</a> -->
       <!--Controls-->
-    </div>
+    <!-- </div> -->
     <!-- Carousel Wrapper -->
-				      </div>
+				      <!-- </div>
 			     </div>
 					<div class="d-none d-lg-flex">
 						<a class="carousel-control-prev left tcara-l carousel-control" href="#carousel-example-1" role="button"
@@ -163,17 +185,17 @@ enhances all these aspects of life.”</p>
         data-slide="next">
         <span class="icon-next" aria-hidden="false"><i class="f white-text"></i></span>
          <span><img src="/images/Body/ir.png" style="height: 25px; width: 50px;"></span>
-      </a>
-					</div>
+      </a> -->
+					<!-- </div>
 						
 					
 					
 						</div>
 					</div>
-				</div>
-	</div>
+				</div> -->
+	<!-- </div> -->
 </section>
-<section id="media">
+<!-- <section id="media">
 	<div class="container">
 		<div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
@@ -183,7 +205,7 @@ enhances all these aspects of life.”</p>
 </div>
 	</div>
 
-</section>
+</section> -->
 <section class="d-none">
 	<div class="container">
 		<div class="row icorp d-none d-lg-flex">
@@ -268,3 +290,6 @@ equanimity, optimism and empathy.
 </section>
 
 <%- include("partials/footer") %>
+
+	
+	 

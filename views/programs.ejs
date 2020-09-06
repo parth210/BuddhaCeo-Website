@@ -1,9 +1,27 @@
 <%- include("partials/header") %>
+<% function compare(a, b) {
+	if (a.rank < b.rank){
+	  return -1;
+	}
+	if (a.rank > b.rank){
+	  return 1;
+	}
+	return 0;
+  }%>
 <section>
 	
 <div class="row" id="box-search">
+  <% events_top[0].elements.sort(compare).forEach((event,key) => {
+    temp = []
+    temp['id'] = event._id
+    temp['rank']=event.rank
+    event.data.forEach((type) => {
+      temp[type.name] = type.value
+    })
+    if(key<=0){
+    %>
     <div class="thumbnail text-center">
-        <img src="/images/programs/1.png" alt="" class="img-responsive w-100">
+        <img src="/images/uploads/<%=temp['img']%>" alt="" class="img-responsive w-100">
         <div class="caption justify-content-center">
             <div class="row">
 				<div class="col-lg-6 d-none d-lg-flex align-items-center logo" >
@@ -11,12 +29,10 @@
 				</div>
 				<div class="col-lg-5 ml-5 img-text">
 					<h1>
-						Our Programs
+						<%=temp['title']%>
 					</h1>
 					<p>
-						Following initial set of courses on Science of Meditation and Science of Spirituality are offered to individuals 
-                        and organizations. All courses emphasize on breath-mindfulness meditation practice and include multiple long meditation sessions.  There are four key areas of wisdom and                         techniques that help a leader to become 
-                        a Buddha-CEO.</p>
+						<%= temp['description']%></p>
 				</div>
 			</div>
 			<div id="arrow">
@@ -24,6 +40,10 @@
 			</div>
         </div>
     </div>
+    <%
+  
+}temp=[]})
+%>
 </div>
 
 </section>
@@ -33,6 +53,20 @@
 <div id="pg2" class="d-none d-lg-flex">
 	<img src="/images/programs/4.png">
 </div>
+<section>
+    <div class="row justify-content-around" style="margin-top: 10%">
+        <div class="col-lg-4">
+          <!-- <a href="https://www.events.buddhaceo.org/pastevents" class="btn btn-lg w-100 button" style="background-color: #0771bc">
+            <strong style="font-size: 22px; color: white;">Past Programs</strong>
+          </a> -->
+        </div>
+        <div class="col-lg-4">
+          <a href="https://www.events.buddhaceo.org/" class="btn btn-lg w-100 button" style="background-color: #0771bc">
+            <strong style="font-size: 22px; color: white;">Upcoming Programs</strong>
+          </a>
+        </div>
+      </div>
+</section>
 <section id="cards">
 <div class="container">
 	<div class="row justify-content-center">
@@ -131,25 +165,35 @@
 			<div class="col d-flex justify-content-center text">
 				<h1>Workshops &amp; Courses</h1>
 			</div>
-		</div>
+    </div>
+    <% w_c[0].elements.sort(compare).forEach((event,key) => {
+      temp = []
+      temp['id'] = event._id
+      temp['rank']=event.rank
+      event.data.forEach((type) => {
+        temp[type.name] = type.value
+      })
+      
+      %>
 	<div class="card mb-3 mt-5 imgcard " id="card2">
   <div class="row no-gutters">
     <div class="col-md-4 cimage">
-      <img src="/images/programs/5.jpg" class="card-img" alt="...">
+      <img src="/images/uploads/<%=temp['img']%>" class="card-img" alt="...">
     </div>
     <div class="col-md-6">
       <div class="card-body ctext">
-        <h5 class="card-title">Guided Meditation for Personal Resilience and Peak Performance - 6
-weeks
+        <h5 class="card-title"><%= temp['title'] %>
         </h5>
-        <p>In this 40 days program, you will do daily practice of meditation in large groups and learn
-knowledge in abundance to transform lives. From Meditation to Manifestation to Friendship
-with Self to Health and Well-being to Mindfulness.</p>
+        <p><%= temp['description'] %></p>
       </div>
     </div>
   </div>
 </div>
-	<div class="card mb-3 mt-5 imgcard " id="card2">
+<%
+  
+temp=[]})
+%>
+	<!-- <div class="card mb-3 mt-5 imgcard " id="card2">
   <div class="row no-gutters">
     <div class="col-md-4 cimage">
       <img src="/images/programs/6.jpg" class="card-img" alt="...">
@@ -172,6 +216,7 @@ This program is targeted at beginners and long term meditators.</p>
     </div>
     <div class="col-md-6">
       <div class="card-body ctext">
+           <a href="" target="_blank" style="cursor: pointer;"></a> 
         <h5 class="card-title">Elevate Your Energy, Create a Magnificent Future 
          for Yourself and Your Business
          </h5>
@@ -192,7 +237,7 @@ an extraordinary life through Manifestation Wisdom and Meditation.</p>
     <div class="col-md-6">
       <div class="card-body ctext">
         <h5 class="card-title">Nurture Your Team For Growth Mindset </h5>
-        <p>A 2/3-day classroom workshop led by an expert Buddha-CEO Leader
+        <p>A 2/3-day classroom workshop led by an expert Buddha-CEO Leader
 having personal experiences [will be introduced in future]</p>
       </div>
     </div>
@@ -212,7 +257,7 @@ be introduced in future]</p>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 	<div class="row justify-content-around" style="margin-top: 10%">
 		<div class="col-lg-4">
 			<a href="https://www.events.buddhaceo.org/pastevents" class="btn btn-lg w-100 button" style="background-color: #0771bc">
