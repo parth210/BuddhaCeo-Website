@@ -405,4 +405,9 @@ router.get("/admin/corporate/response" , function(req, res) {
 		}
 	})
 })
+router.get("/admin/login" , function(req, res) { 
+	
+			res.render("admin_login");
+	
+})
 module.exports = router;
