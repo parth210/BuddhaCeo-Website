@@ -2,6 +2,12 @@ var express       = require("express");
 var router        = express.Router();
 
 var CMS = require("../models/CMS");
+var Corporate = require("../models/Corporate");
+var Programs = require("../models/Programs");
+var Volunteer = require("../models/Volunteer");
+var General = require("../models/General");
+var Newsletter = require("../models/Newsletter");
+
 
 router.get("/" , function(req, res) {
 	CMS.find({type: 'carousel'}, (err, carousel) => {
@@ -193,7 +199,7 @@ router.get("/admin/home" , function(req, res) {
 					})
 				}
 			})
-			
+
 			}
 		})
 })
@@ -299,6 +305,8 @@ router.get("/admin/donate" , function(req, res) {
 		}
 	})
 })
+
+
 router.get("/admin/contact" , function(req, res) {
 	CMS.find({type: 'email'}, (err,email) => {
 		if (err) {
@@ -323,6 +331,18 @@ router.get("/admin/contact" , function(req, res) {
 					})
 				}
 			})
+		}
+	})
+})
+
+
+
+router.get("/admin/newsletter" , function(req, res) { 
+	Newsletter.find({}, (err,newsletter) => {
+		if (err) {
+			console.log(err)
+		} else 	{
+			res.render("admin_newsletter",{newsletter});
 		}
 	})
 })
