@@ -459,9 +459,7 @@ router.get("/admin/corporate/response" , function(req, res) {
 }
 })
 
-router.get("/admin/login" , function(req, res) {
-			res.render("admin_login");
-})
+
 
 router.get("/admin/logout" , function(req, res) {
 			req.session.destroy();
@@ -475,7 +473,10 @@ router.post("/admin/login" , function(req, res) {
 					req.session.admin='true';
 					res.redirect('/admin/home');
 			} else {
-				res.redirect('/admin/login');
+				res.render('admin_login',{err:true})
 			}
+})
+router.get("/admin/login" , function(req, res) {
+	res.render("admin_login",{err:false});
 })
 module.exports = router;
