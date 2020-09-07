@@ -1129,3 +1129,6 @@ display: none;
 	width:70%;
 	display:inline-block;
 }
+.modal-content{
+	border-radius: 2% !important;
+}
