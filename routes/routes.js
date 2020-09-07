@@ -1,5 +1,13 @@
 var express       = require("express");
 var router        = express.Router();
+var expressSession = require('express-session');
+
+router.use(expressSession({
+  secret: 'tH!$_!$_mY_$3$$!0n_$3cR3T',
+  resave: true,
+  saveUninitialized: true
+}));
+
 
 var CMS = require("../models/CMS");
 var Corporate = require("../models/Corporate");
@@ -84,7 +92,7 @@ router.get("/about" , function(req, res) {
 												{
 													res.render("about",{about_top,mentors,founders,apex,flag,partner});
 												}
-											})   
+											})
 										}
 									})
 								}
@@ -178,6 +186,7 @@ router.get("/contact" , function(req, res) {
 })
 
 router.get("/admin/home" , function(req, res) {
+	if(req.session.admin=='true'){
 	CMS.find({type: 'carousel'}, (err, carousel) => {
 		if (err) {
 			console.log(err)
@@ -234,9 +243,13 @@ router.get("/admin/home" , function(req, res) {
 
 			}
 		})
+	} else {
+		res.redirect('/admin/login');
+	}
 })
 
 router.get("/admin/about" , function(req, res) {
+	if(req.session.admin=='true'){
 	CMS.find({type: 'about_top'}, (err,about_top) => {
 		if (err) {
 			console.log(err)
@@ -287,8 +300,13 @@ router.get("/admin/about" , function(req, res) {
 
 		}
 	})
+} else {
+	res.redirect('/admin/login');
+}
 })
+
 router.get("/admin/events" , function(req, res) {
+	if(req.session.admin=='true'){
 	CMS.find({type: 'w_c'}, (err,w_c) => {
 		if (err) {
 			console.log(err)
@@ -306,8 +324,13 @@ router.get("/admin/events" , function(req, res) {
 			})
 		}
 	})
+} else {
+	res.redirect('/admin/login');
+}
 })
+
 router.get("/admin/corporate" , function(req, res) {
+	if(req.session.admin=='true'){
 	CMS.find({type: 'corporate_top'}, (err,corporate_top) => {
 		if (err) {
 			console.log(err)
@@ -317,8 +340,13 @@ router.get("/admin/corporate" , function(req, res) {
 			res.render("admin_corporate",{corporate_top});
 		}
 	})
+} else {
+	res.redirect('/admin/login');
+}
 })
+
 router.get("/admin/donate" , function(req, res) {
+	if(req.session.admin=='true'){
 	CMS.find({type: 'donate'}, (err,donate) => {
 		if (err) {
 			console.log(err)
@@ -336,10 +364,14 @@ router.get("/admin/donate" , function(req, res) {
 			})
 		}
 	})
+} else {
+	res.redirect('/admin/login');
+}
 })
 
 
 router.get("/admin/contact" , function(req, res) {
+	if(req.session.admin=='true'){
 	CMS.find({type: 'email'}, (err,email) => {
 		if (err) {
 			console.log(err)
@@ -365,11 +397,15 @@ router.get("/admin/contact" , function(req, res) {
 			})
 		}
 	})
+} else {
+	res.redirect('/admin/login');
+}
 })
 
 
 
-router.get("/admin/newsletter" , function(req, res) { 
+router.get("/admin/newsletter" , function(req, res) {
+	if(req.session.admin=='true'){
 	Newsletter.find({}, (err,newsletter) => {
 		if (err) {
 			console.log(err)
@@ -377,14 +413,70 @@ router.get("/admin/newsletter" , function(req, res) {
 			res.render("admin_newsletter",{newsletter});
 		}
 	})
+} else {
+	res.redirect('/admin/login');
+}
 })
-router.get("/admin/volunteer" , function(req, res) { 
-	Volunteer.find({}, (err,volunteer) => {
+
+router.get("/admin/volunteer" , function(req, res) {
+	if(req.session.admin=='true'){
+			Volunteer.find({}, (err,volunteer) => {
+				if (err) {
+					console.log(err)
+				} else 	{
+					res.render("admin_volunteer",{volunteer});
+				}
+			})
+	} else {
+		res.redirect('/admin/login');
+	}
+})
+router.get("/admin/general" , function(req, res) {
+	if(req.session.admin=='true'){
+	General.find({}, (err,general) => {
 		if (err) {
 			console.log(err)
 		} else 	{
-			res.render("admin_volunteer",{volunteer});
+			res.render("admin_general",{general});
 		}
 	})
+	} else {
+		res.redirect('/admin/login');
+	}
+})
+
+router.get("/admin/corporate/response" , function(req, res) {
+	if(req.session.admin=='true'){
+	Corporate.find({}, (err,corp) => {
+		if (err) {
+			console.log(err)
+		} else 	{
+			res.render("corporate_enquiry",{corp});
+		}
+	})
+} else {
+	res.redirect('/admin/login');
+}
+})
+
+
+
+router.get("/admin/logout" , function(req, res) {
+			req.session.destroy();
+			res.redirect('/admin/login');
+})
+
+
+router.post("/admin/login" , function(req, res) {
+			console.log(req.body.password);
+			if(req.body.password=='Buddha@123!!'){
+					req.session.admin='true';
+					res.redirect('/admin/home');
+			} else {
+				res.render('admin_login',{err:true})
+			}
+})
+router.get("/admin/login" , function(req, res) {
+	res.render("admin_login",{err:false});
 })
 module.exports = router;

@@ -1,3 +1,4 @@
+
 <%- include("partials/sidebar") %>
 
 <div class="modal fade" id="corporate_top_add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -33,25 +34,43 @@
     </div>
   </div>
 </div>
-<h2 class="admin-heads">Newsletter</h2>
+<h2 class="admin-heads">Corporate Enquiry</h2>
+
 <hr>
 <div style="overflow-x: auto;">
-  <table class="table">
+  <table class="table" style="overflow-x: visible;">
     <thead>
       <tr>
         <th scope="col">S. No.</th>
         <th scope="col">Name</th>
-        <th scope="col">Email</th>
+        <th scope="col">Title</th>
+        <th scope="col">Company</th>
+        <th scope="col">Domain</th>
+        <th scope="col">Purpose</th>
+        <th scope="col">TimeFrame</th>
+        <th scope="col">Target Audience</th>
+        <th scope="col">Additional Info</th>
+        
+        
       </tr>
     </thead>
     <tbody>
       <% var i = 1;
-      newsletter.forEach((key) => {
+      corp.forEach((key) => {
         %>
       <tr>
         <th><%= i %></th>
         <td><%= key['name'] %></td>
-        <td><%= key['email'] %></td>
+        <td><%= key['title'] %></td>
+        <td><%= key['company'] %></td>
+        <td><%= key['domain'] %></td>
+        <td><%= key['purpose'] %></td>
+        <td><%= key['timeframe'] %></td>
+        <td><%= key['target'] %></td>
+        <td><%= key['additional_info'] %></td>
+        
+        
+
       </tr>
       <% i= i+1; }) %>
     </tbody>

@@ -36,8 +36,8 @@
 <h2 class="admin-heads">Volunteer</h2>
 
 <hr>
-<div style="display: flex;">
-  <table class="table">
+<div style="overflow-x:auto;">
+  <table class="table" style="overflow-x: visible;">
     <thead>
       <tr>
         <th scope="col">S. No.</th>
@@ -49,8 +49,7 @@
         <th scope="col">Meditation</th>
         <th scope="col">Service</th>
         <th scope="col">Categories</th>
-        <th scope="col">Other Categories
-        <th scope="col">Categories</th>
+        <th scope="col">Other Categories</th>
         <th scope="col">Contributions</th>
         <th scope="col">Other Contributions</th>
         <th scope="col">Intrests</th>
@@ -67,6 +66,17 @@
         <td><%= key['name'] %></td>
         <td><%= key['phone'] %></td>
         <td><%= key['email'] %></td>
+        <td><%= key['city_country'] %></td>
+        <td><%= key['role'] %></td>
+        <td><%= key['meditation'] %></td>
+        <td><%= key['service'] %></td>
+        <td><%= key['categories'].toString() %></td>
+        <td><%= key['categories_others'] %></td>
+        <td><%= key['contribution'] %></td>
+        <td><%= key['contribution_others'] %></td>
+        <td><%= key['intrests'] %></td>
+        
+
       </tr>
       <% i= i+1; }) %>
     </tbody>
