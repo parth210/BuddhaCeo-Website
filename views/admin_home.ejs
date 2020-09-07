@@ -39,7 +39,7 @@
 <div style="display: flex;">
 
 
-<% carousel[0].elements.forEach((car) => {
+<% if(carousel.length>0)carousel[0].elements.forEach((car) => {
   temp = []
   temp['id'] = car._id
   temp['rank']=car.rank
@@ -140,7 +140,7 @@
 <a class="btn btn-md btn-primary button" href="#events_add" data-toggle="modal" style="float:right">Add new</a>
 <hr>
 <div style="display: flex;">
-  <% events[0].elements.forEach((event) => {
+  <% if(events.length>0)events[0].elements.forEach((event) => {
     temp = []
     temp['id'] = event._id
     temp['rank']=event.rank
