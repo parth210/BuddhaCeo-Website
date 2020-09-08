@@ -469,6 +469,7 @@ router.get("/admin/logout" , function(req, res) {
 
 router.post("/admin/login" , function(req, res) {
 			console.log(req.body.password);
+	              // change password here
 			if(req.body.password=='Buddha@123!!'){
 					req.session.admin='true';
 					res.redirect('/admin/home');

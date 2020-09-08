@@ -90,6 +90,7 @@
 .drop a {
 	color: black;
 	width: fit-content;
+	overflow: hidden;
 }
 /* footer */
 
@@ -373,21 +374,21 @@ body {
 #cg1 img {
 	position: absolute;
     height: 600px;
-    right: 0;
+    right: -150px;
 	top: 120%;
 	z-index: -1
 }
 #cg2 img {
 	position: absolute;
     height: 600px;
-    left: 0;
+    left: -150px;
 	top: 170%;
 }
 #cg3 img {
 	position: absolute;
     height: 600px;
-    right: 0;
-	top: 300%;
+    right: -150px;
+	top: 260%;
 	z-index: -1
 }
 #cg4 img {
@@ -687,12 +688,12 @@ body {
 	margin-top: 10%;
 }
 .cimage img {
-	width: 190px;
 	height: 100%;
 	object-fit: cover;
+	border-radius: 10px;
 }
 .imgcard {
-	padding: 30px;
+	padding: 20px;
 	border-radius: 15px!important;
 }
 .spi-card {
@@ -702,6 +703,7 @@ body {
 }
 .teamcard {
 	border-radius: 20px!important;
+	
 }
 /* contact */
 
@@ -896,6 +898,7 @@ text-align: center;
     width: 200px;
     height: 200px;
     align-self: center;
+	padding: 20px;
 }
 .flagcard {
 	padding: 10px;
@@ -912,7 +915,6 @@ text-align: center;
 
 #corporate {
 	margin-right: 5%;
-	top: 150px;
 }
 #media {
 	margin-top: 10%;
@@ -974,6 +976,10 @@ display: none;
    opacity: 1;
    border-radius: 15px;
  }
+	.socialmedia {
+		margin-left: auto;
+		margin-right: auto;
+	}
 	
  #demo
  {
@@ -1060,7 +1066,7 @@ display: none;
     width: 100%;
 }
 	.button {
-		padding: 6px 12px!important;
+		padding: 12px 24px!important;
     font-size: 14px!important;
 	}
 	.caption-donate {
@@ -1131,4 +1137,7 @@ display: none;
 }
 .modal-content{
 	border-radius: 2% !important;
+}
+.sub-form {
+	border-radius: 20px!important;
 }
