@@ -36,7 +36,7 @@
 <h2 class="admin-heads">Carousel</h2>
 <a class="btn btn-md btn-primary button" href="#carousel_add" data-toggle="modal" style="float:right">Add new</a>
 <hr>
-<div style="display: flex;">
+<div style="display: flex;flex-wrap:wrap;">
 
 
 <% if(carousel.length>0)carousel[0].elements.forEach((car) => {
@@ -51,7 +51,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="border: 0;">
-        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add carousel</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Edit carousel</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -70,7 +70,7 @@
   </div>
   <div class="form-group">
     <label>Description</label>
-    <textarea name="description" aria-describedby="emailHelp" class="form-control" ><%= temp['title']; %></textarea>
+    <textarea name="description" aria-describedby="emailHelp" class="form-control" ><%= temp['description']; %></textarea>
   </div>
   <div class="form-group">
     <label>Image</label>
@@ -88,7 +88,7 @@
        <h5 class="card-title"><%= temp['title']; %></h5>
        rank:<%= temp['rank']; %>
       <p class="card-text"><%= temp['description']; %></p>
-        <a class="btn btn-lg btn-primary button" href="#car<%= temp['id'] %>" data-toggle="modal">Edit</a>  <a target="_blank" href="/cms/delete/carousel/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+        <a class="btn btn-lg btn-primary button" href="#car<%= temp['id'] %>" data-toggle="modal">Edit</a>  <a  href="/cms/delete/carousel/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
   </div>
 </div>
 
@@ -139,7 +139,7 @@
 <h2 class="admin-heads">Events</h2>
 <a class="btn btn-md btn-primary button" href="#events_add" data-toggle="modal" style="float:right">Add new</a>
 <hr>
-<div style="display: flex;">
+<div style="display: flex;flex-wrap:wrap;">
   <% if(events.length>0)events[0].elements.forEach((event) => {
     temp = []
     temp['id'] = event._id
@@ -152,7 +152,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header" style="border: 0;">
-          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Edit event</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -209,7 +209,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="border: 0;">
-        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -242,7 +242,7 @@
 <h2 class="admin-heads">Testimonials</h2>
 <a class="btn btn-md btn-primary button" href="#testimonial_add" data-toggle="modal" style="float:right">Add new</a>
 <hr>
-<div style="display: flex;">
+<div style="display: flex;flex-wrap:wrap;">
   <% if(testimonial.length>0)testimonial[0].elements.forEach((event) => {
     temp = []
     temp['id'] = event._id
@@ -255,7 +255,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header" style="border: 0;">
-          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;"> Edit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -307,7 +307,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="border: 0;">
-        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -337,7 +337,7 @@
 <h2 class="admin-heads">Resources</h2>
 <a class="btn btn-md btn-primary button" href="#resources_add" data-toggle="modal" style="float:right">Add new</a>
 <hr>
-<div style="display: flex;">
+<div style="display: flex;flex-wrap:wrap;">
   <% if(resources.length>0)resources[0].elements.forEach((event) => {
     temp = []
     temp['id'] = event._id
@@ -350,7 +350,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header" style="border: 0;">
-          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add event</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Edit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

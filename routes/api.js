@@ -229,5 +229,42 @@ router.post('/cms/:page/:type', upload.single('img'), function (req, res) {
 
 })
 
+//csv
+router.get('/:type/export', function (req, res) {
+
+  
+
+  model(req.params.type).find({}, (err, found) => {
+    if (err) {
+      console.log(err)
+    } else {
+      csv="S.no,"
+      if(found.length>0)
+      {Object.keys(found[0].toJSON()).forEach((key)=>
+      { 
+        csv+=key+","
+      })
+      csv+="\n"
+      found.forEach((record,key)=>
+      { 
+        csv+=(key+1)+",";
+        Object.keys(record.toJSON()).forEach((key2)=>
+        { 
+          csv+=record[key2]+","
+        })
+        csv+="\n"
+      })
+    }
+      res.setHeader('Content-disposition', 'attachment; filename=export.csv');
+      res.set('Content-Type', 'text/csv');
+      res.send(csv)
+    }
+  })
+
+  
+      
+    
+})
+
 
 module.exports = router;

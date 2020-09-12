@@ -35,7 +35,7 @@
 <h2 class="admin-heads">contact_top</h2>
 <a class="btn btn-md btn-primary button" href="#contact_top_add" data-toggle="modal" style="float:right">Add new</a>
 <hr>
-<div style="display: flex;">
+<div style="display: flex;flex-wrap:wrap;">
 
 
 <% if(contact_top.length>0)contact_top[0].elements.forEach((car) => {
@@ -50,7 +50,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header" style="border: 0;">
-          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add about_top</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Edit</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -87,7 +87,7 @@
        <h5 class="card-title"><%= temp['title']; %></h5>
        rank:<%= temp['rank']; %>
       <p class="card-text"><%= temp['description']; %></p>
-        <a class="btn btn-lg btn-primary button" data-toggle="modal" href="#contact_top<%= temp['id']; %>">Edit</a>  <a target="_blank" href="/cms/delete/contact_top/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+        <a class="btn btn-lg btn-primary button" data-toggle="modal" href="#contact_top<%= temp['id']; %>">Edit</a>  <a  href="/cms/delete/contact_top/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
   </div>
 </div>
 
@@ -128,7 +128,7 @@
   <h2 class="admin-heads">Email </h2>
   <a class="btn btn-md btn-primary button" href="#email_add" data-toggle="modal" style="float:right">Add new</a>
   <hr>
-  <div style="display: flex;">
+  <div style="display: flex;flex-wrap:wrap;">
   
   
   <% if(email.length>0)email[0].elements.forEach((car) => {
@@ -143,7 +143,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header" style="border: 0;">
-          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add email</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Edit email</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -173,7 +173,7 @@
         rank:<%= temp['rank']; %> 
          <h5 class="card-title"><%= temp['email']; %></h5>
          
-          <a class="btn btn-lg btn-primary button" href="#email<%=temp['id']%>" data-toggle="modal">Edit</a>  <a target="_blank" href="/cms/delete/email/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+          <a class="btn btn-lg btn-primary button" href="#email<%=temp['id']%>" data-toggle="modal">Edit</a>  <a  href="/cms/delete/email/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
     </div>
   </div>
   
@@ -213,7 +213,7 @@
   <h2 class="admin-heads">phone </h2>
   <a class="btn btn-md btn-primary button" href="#phone_add" data-toggle="modal" style="float:right">Add new</a>
   <hr>
-  <div style="display: flex;">
+  <div style="display: flex;flex-wrap:wrap;">
   
   
   <% if(phone.length>0)phone[0].elements.forEach((car) => {
@@ -228,7 +228,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header" style="border: 0;">
-          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Add phone</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 30%;">Edit phone</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -258,7 +258,7 @@
         rank:<%= temp['rank']; %> 
          <h5 class="card-title"><%= temp['phone']; %></h5>
          
-          <a class="btn btn-lg btn-primary button" href="#phone<%=temp['id']%>" data-toggle="modal">Edit</a>  <a target="_blank" href="/cms/delete/phone/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
+          <a class="btn btn-lg btn-primary button" href="#phone<%=temp['id']%>" data-toggle="modal">Edit</a>  <a  href="/cms/delete/phone/<%= temp['id'] %>" class="btn btn-lg btn-danger button">Delete</a>
     </div>
   </div>
   
