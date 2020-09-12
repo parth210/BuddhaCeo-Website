@@ -980,6 +980,17 @@ display: none;
 		margin-left: auto;
 		margin-right: auto;
 	}
+	#drop-area {
+		position: static!important;
+		width: fit-content;
+        margin-left: 5%;
+        background: black;
+	}
+	.drop-link {
+		overflow: hidden!important; 
+		color: white!important; 
+		font-weight:500!important;
+	}
 	
  #demo
  {
@@ -1140,4 +1151,7 @@ display: none;
 }
 .sub-form {
 	border-radius: 20px!important;
+}
+.cimage {
+	cursor: pointer;
 }

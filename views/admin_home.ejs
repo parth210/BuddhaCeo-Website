@@ -193,7 +193,7 @@
        <h5 class="card-title"><%= temp['title']; %></h5>
        rank:<%= temp['rank']; %>
       <p class="card-text"><%= temp['description']; %></p>
-      <a href="<%= temp['link']; %>">event link :-<%= temp['link']; %></a>
+      <a href="<%= temp['link']; %>" target="_blank"><%= temp['link']; %></a>
         <a class="btn btn-lg btn-primary button" href="#eve<%= temp['id']; %>" data-toggle="modal">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/events/<%= temp['id'] %>">Delete</a>
   </div>
 </div>
@@ -291,7 +291,7 @@
    <div class="card-body cardstyle">
     rank:<%= temp['rank']; %>
     <h5 class="card-title"><%= temp['title']; %></h5>
-    <a  href="<%= temp['url'];%>">url:<%= temp['url']; %></a>
+    <a  href="<%= temp['url'];%>" target="_blank">url:<%= temp['url']; %></a>
       <p class="card-text"><%= temp['description']; %></p>
       
         <a class="btn btn-lg btn-primary button" href="#tes<%=temp['id'];%>" data-toggle="modal">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/testimonial/<%= temp['id'] %>">Delete</a>
@@ -383,7 +383,7 @@
    <div class="card-body cardstyle">
     rank:<%= temp['rank']; %>
     <h5 class="card-title"><%= temp['title']; %></h5>
-    <a  href="<%= temp['url'];%>">url:<%= temp['url']; %></a>
+    <a  href="<%= temp['url'];%>" target="_blank">url:<%= temp['url']; %></a>
       
       
         <a class="btn btn-lg btn-primary button" data-toggle="modal" href="#res<%=temp['id'];%>">Edit</a>  <a class="btn btn-lg btn-danger button" href="/cms/delete/resources/<%= temp['id'] %>">Delete</a>
