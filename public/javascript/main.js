@@ -12,8 +12,10 @@ $('.navbar-nav .nav-item a').click(function(){
     $(this).closest('.nav-item').addClass('active');
     
 })
-$('.submit-button').click(()=>
+$('.submit-button-1').click(()=>
 {
     alert('form submitted successfully')
 })
 });
+
+  
