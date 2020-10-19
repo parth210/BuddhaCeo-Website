@@ -16,7 +16,7 @@
   <!-- Indicators -->
   <ul class="carousel-indicators cover d-none d-lg-flex">
 	
-	<% carousel[0].elements.sort(compare).forEach((event,key) => {
+	<% if(carousel[0])carousel[0].elements.sort(compare).forEach((event,key) => {
 		
 		if(key===0){
 	  %>
@@ -38,7 +38,8 @@
   <!-- The slideshow -->
   
   <div class="carousel-inner">
-	<% carousel[0].elements.sort(compare).forEach((event,key) => {
+	<% if(carousel[0]){
+		carousel[0].elements.sort(compare).forEach((event,key) => {
 		temp = []
 		temp['id'] = event._id
 		temp['rank']=event.rank
@@ -106,7 +107,7 @@
 		  </div>
 	<%
   
-}temp=[]})
+}temp=[]})}
 %>
     <!-- <div class="carousel-item front">
       <img src="/images/carousel3/b3.jpg" alt="New York" class="d-cover w-100">
@@ -239,7 +240,7 @@ a difference to life.
 	</div>
 		<div class="container-fluid">
 			<div class="row justify-content-center">
-				<% events[0].elements.sort(compare).forEach((event,key) => {
+				<% if(events[0])events[0].elements.sort(compare).forEach((event,key) => {
 					temp = []
 					temp['id'] = event._id
 					temp['rank']=event.rank
@@ -540,7 +541,7 @@ enhances all these aspects of life.”</p>
 			</div>
 		</div> -->
 		<div class="row mt-5 justify-content-around">
-			<% testimonial[0].elements.sort(compare).forEach((event,key) => {
+			<% if(testimonial[0])testimonial[0].elements.sort(compare).forEach((event,key) => {
 				temp = []
 				temp['id'] = event._id
 				temp['rank']=event.rank
@@ -667,7 +668,7 @@ Sankara Eye Foundatation
 			</div>
 		</div>
 		<div class="row mt-5 justify-content-around">
-			<% resources[0].elements.sort(compare).forEach((event,key) => {
+			<% if(resources	[0])resources[0].elements.sort(compare).forEach((event,key) => {
 				temp = []
 				temp['id'] = event._id
 				temp['rank']=event.rank

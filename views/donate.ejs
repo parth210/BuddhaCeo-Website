@@ -10,7 +10,7 @@
   }%>
  <section>
 <div class="row">
-  <% donate_top[0].elements.sort(compare).forEach((event,key) => {
+  <% if(donate_top[0])donate_top[0].elements.sort(compare).forEach((event,key) => {
     temp = []
     temp['id'] = event._id
     temp['rank']=event.rank
@@ -47,7 +47,7 @@
 </section> 
 <section>
 	<div class="container">
-    <% donate[0].elements.sort(compare).forEach((event,key) => {
+    <% if(donate[0])donate[0].elements.sort(compare).forEach((event,key) => {
       temp = []
       temp['id'] = event._id
       temp['rank']=event.rank

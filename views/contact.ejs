@@ -11,7 +11,7 @@
 <section>
 	
 <div class="row">
-	<% contact_top[0].elements.sort(compare).forEach((event,key) => {
+	<% if(contact_top[0])contact_top[0].elements.sort(compare).forEach((event,key) => {
 		temp = []
 		temp['id'] = event._id
 		temp['rank']=event.rank
@@ -99,7 +99,7 @@ Queries</h5>
 				<strong>You may also contact us at the following:</strong> 
 			</p><br>
 			<p>
-				<% email[0].elements.sort(compare).forEach((event,key) => {
+				<% if(email[0])email[0].elements.sort(compare).forEach((event,key) => {
 					temp = []
 					temp['id'] = event._id
 					temp['rank']=event.rank
@@ -113,7 +113,7 @@ Queries</h5>
   
 			temp=[]})
 			%>
-			<% phone[0].elements.sort(compare).forEach((event,key) => {
+			<% if(phone[0])phone[0].elements.sort(compare).forEach((event,key) => {
 				temp = []
 				temp['id'] = event._id
 				temp['rank']=event.rank

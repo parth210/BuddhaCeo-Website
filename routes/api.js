@@ -21,7 +21,7 @@ var CMS = require("../models/CMS");
 
 function model(type) {
   switch (type){
-    case 'corporate':
+    case 'corporate':     
       return Corporate;
       break;
     case 'programs':
@@ -250,8 +250,8 @@ router.get('/:type/export', function (req, res) {
         csv+=(key+1)+",";
         Object.keys(record.toJSON()).forEach((key2)=>
         { 
-          csv+=record[key2]+","
-        })
+          csv+=record[key2]+"," 
+        }) 
         csv+="\n"
       })
     }

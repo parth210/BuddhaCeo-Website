@@ -10,7 +10,7 @@
   }%>
  <section>
 <div class="row" id="box-search">
-	<% corporate_top[0].elements.sort(compare).forEach((event,key) => {
+	<% if(corporate_top[0])corporate_top[0].elements.sort(compare).forEach((event,key) => {
 		temp = []
 		temp['id'] = event._id
 		temp['rank']=event.rank

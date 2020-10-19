@@ -9,8 +9,9 @@
 	return 0;
   }%>
 <section>
+	
 	<div class="row" id="box-search">
-		<% about_top[0].elements.sort(compare).forEach((event,key) => {
+		<% if(about_top[0])about_top[0].elements.sort(compare).forEach((event,key) => {
 			temp = []
 			temp['id'] = event._id
 			temp['rank']=event.rank
@@ -1694,7 +1695,7 @@ Former IBM Exec , Entrepreneur
 				</div>
 			</div>
 		<div class="row mt-5">
-			<% mentors[0].elements.sort(compare).forEach((event,key) => {
+			<%if(mentors[0]) mentors[0].elements.sort(compare).forEach((event,key) => {
 				temp = []
 				temp['id'] = event._id
 				temp['rank']=event.rank
@@ -1814,7 +1815,7 @@ temp=[]})
 				</div>
 			</div>
 		<div class="row mt-5">
-			<% founders[0].elements.sort(compare).forEach((event,key) => {
+			<% if(founders[0])founders[0].elements.sort(compare).forEach((event,key) => {
 				temp = []
 				temp['id'] = event._id
 				temp['rank']=event.rank
@@ -1882,7 +1883,7 @@ temp=[]})
 				</div>
 			</div>
 		<div class="row mt-5">
-			<% apex[0].elements.sort(compare).forEach((event,key) => {
+			<% if(apex[0])apex[0].elements.sort(compare).forEach((event,key) => {
 				temp = []
 				temp['id'] = event._id
 				temp['rank']=event.rank
@@ -1918,7 +1919,7 @@ temp=[]})
 				</div>
 			</div>
 		<div class="row"> 
-			<% flag[0].elements.sort(compare).forEach((event,key) => {
+			<%if(flag[0]) flag[0].elements.sort(compare).forEach((event,key) => {
 				temp = []
 				temp['id'] = event._id
 				temp['rank']=event.rank
@@ -2790,7 +2791,7 @@ temp=[]})
 		</div>
 
 	<div class="row mt-5">
-		<% partner[0].elements.sort(compare).forEach((event,key) => {
+		<% if(partner[0])partner[0].elements.sort(compare).forEach((event,key) => {
 			temp = []
 			temp['id'] = event._id
 			temp['rank']=event.rank

@@ -11,7 +11,7 @@
 <section>
 	
 <div class="row" id="box-search">
-  <% events_top[0].elements.sort(compare).forEach((event,key) => {
+  <% if(events_top[0])events_top[0].elements.sort(compare).forEach((event,key) => {
     temp = []
     temp['id'] = event._id
     temp['rank']=event.rank
@@ -166,7 +166,7 @@
 				<h1>Workshops &amp; Courses</h1>
 			</div>
     </div>
-    <% w_c[0].elements.sort(compare).forEach((event,key) => {
+    <%if(w_c[0]) w_c[0].elements.sort(compare).forEach((event,key) => {
       temp = []
       temp['id'] = event._id
       temp['rank']=event.rank
